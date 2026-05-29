@@ -7,7 +7,8 @@
 <meta name="robots" content="noindex,nofollow">
 <style>
 :root{--bg:#0f0f11;--panel:#17171c;--panel2:#1f1f27;--text:#fff;--muted:#a1a1aa;--line:rgba(255,255,255,.09);--accent:#ff4fd8;--accent2:#7c3aed;--danger:#ef4444;--ok:#10b981;--warn:#f59e0b;--radius:16px;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:inherit}.wrap{width:min(1180px,calc(100% - 28px));margin:0 auto;padding:28px 0 52px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}.brand h1{font-size:1.4rem;margin:0}.brand p{margin:6px 0 0;color:var(--muted);font-size:.9rem}.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 18px 50px rgba(0,0,0,.32)}.login{max-width:420px;margin:12vh auto 0;padding:24px}.login h1{margin:0 0 8px;font-size:1.5rem}.login p{margin:0 0 18px;color:var(--muted);line-height:1.5}.row{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:12px;padding:11px 12px;outline:none}.field textarea{min-height:86px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:rgba(255,79,216,.7)}.span-2{grid-column:span 2}.span-3{grid-column:span 3}.span-4{grid-column:span 4}.span-6{grid-column:span 6}.span-8{grid-column:span 8}.span-12{grid-column:span 12}.actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:999px;padding:11px 16px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2))}.btn.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.btn.danger{background:var(--danger)}.btn.ok{background:var(--ok)}.btn.small{padding:8px 11px;font-size:.78rem}.form-card{padding:18px;margin-bottom:18px}.form-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.form-head h2{margin:0;font-size:1.08rem}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.toolbar input{max-width:340px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:999px;padding:11px 14px;outline:none}.status{font-size:.9rem;color:var(--muted)}.status.ok{color:var(--ok)}.status.err{color:var(--danger)}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:var(--radius)}table{width:100%;border-collapse:collapse;min-width:850px;background:var(--panel)}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:middle}th{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);background:rgba(255,255,255,.03)}td{font-size:.9rem}.thumb{width:52px;height:52px;border-radius:12px;object-fit:cover;background:var(--panel2);border:1px solid var(--line)}.name{font-weight:800}.muted{color:var(--muted);font-size:.82rem}.stock.low{color:var(--warn)}.stock.out{color:var(--danger)}.hidden{display:none!important}@media(max-width:760px){.top,.toolbar,.form-head{align-items:flex-start;flex-direction:column}.row{grid-template-columns:1fr}.span-2,.span-3,.span-4,.span-6,.span-8,.span-12{grid-column:1}.toolbar input{max-width:none;width:100%}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:inherit}.wrap{width:min(1180px,calc(100% - 28px));margin:0 auto;padding:28px 0 52px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}.brand h1{font-size:1.4rem;margin:0}.brand p{margin:6px 0 0;color:var(--muted);font-size:.9rem}.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 18px 50px rgba(0,0,0,.32)}.login{max-width:420px;margin:12vh auto 0;padding:24px}.login h1{margin:0 0 8px;font-size:1.5rem}.login p{margin:0 0 18px;color:var(--muted);line-height:1.5}.row{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:12px;padding:11px 12px;outline:none}.field textarea{min-height:86px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:rgba(255,79,216,.7)}.span-2{grid-column:span 2}.span-3{grid-column:span 3}.span-4{grid-column:span 4}.span-6{grid-column:span 6}.span-8{grid-column:span 8}.span-12{grid-column:span 12}.actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:999px;padding:11px 16px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2))}.btn.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.btn.danger{background:var(--danger)}.btn.ok{background:var(--ok)}.btn.small{padding:8px 11px;font-size:.78rem}.form-card{padding:18px;margin-bottom:18px}.form-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.form-head h2{margin:0;font-size:1.08rem}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.toolbar input{max-width:340px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:999px;padding:11px 14px;outline:none}.status{font-size:.9rem;color:var(--muted)}.status.ok{color:var(--ok)}.status.err{color:var(--danger)}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:var(--radius)}table{width:100%;border-collapse:collapse;min-width:850px;background:var(--panel)}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:middle}th{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);background:rgba(255,255,255,.03)}td{font-size:.9rem}.thumb{width:52px;height:52px;border-radius:12px;object-fit:cover;background:var(--panel2);border:1px solid var(--line)}.name{font-weight:800}.muted{color:var(--muted);font-size:.82rem}.stock.low{color:var(--warn)}.stock.out{color:var(--danger)}.hidden{display:none!important}.csv-zone{border:2px dashed var(--line);border-radius:var(--radius);padding:28px 20px;text-align:center;transition:border-color .2s,background .2s;cursor:pointer}.csv-zone:hover,.csv-zone.drag{border-color:rgba(255,79,216,.6);background:rgba(255,79,216,.05)}.csv-zone p{margin:8px 0 0;color:var(--muted);font-size:.85rem}.csv-zone strong{display:block;font-size:1rem;margin-bottom:4px}.csv-icon{font-size:2rem;line-height:1}.csv-preview{margin-top:16px;overflow:auto;max-height:260px;border:1px solid var(--line);border-radius:12px}.csv-preview table{min-width:600px;font-size:.8rem}.csv-preview th{font-size:.65rem}.csv-preview td{padding:7px 10px}.csv-actions{margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}.badge{display:inline-block;background:rgba(255,79,216,.12);color:var(--accent);border-radius:999px;padding:3px 10px;font-size:.75rem;font-weight:700}
+@media(max-width:760px){.top,.toolbar,.form-head{align-items:flex-start;flex-direction:column}.row{grid-template-columns:1fr}.span-2,.span-3,.span-4,.span-6,.span-8,.span-12{grid-column:1}.toolbar input{max-width:none;width:100%}}
 </style>
 </head>
 <body>
@@ -22,7 +23,7 @@
       <div class="status" id="loginStatus"></div>
     </form>
   </section>
-
+ 
   <section id="adminView" class="hidden">
     <div class="top">
       <div class="brand">
@@ -35,7 +36,7 @@
         <button class="btn danger" id="logoutBtn" type="button">Salir</button>
       </div>
     </div>
-
+ 
     <section class="panel form-card">
       <div class="form-head">
         <h2 id="formTitle">Nuevo producto</h2>
@@ -55,7 +56,36 @@
         <div class="actions span-12"><button class="btn ok" type="submit">Guardar producto</button><div class="status" id="saveStatus"></div></div>
       </form>
     </section>
-
+ 
+    <section class="panel form-card" id="csvSection">
+      <div class="form-head">
+        <h2>Importar desde CSV</h2>
+        <button class="btn secondary small" id="csvToggleBtn" type="button">Ocultar</button>
+      </div>
+      <div id="csvBody">
+        <div class="csv-zone" id="csvZone">
+          <div class="csv-icon">📂</div>
+          <strong>Arrastrá un archivo CSV aquí o hacé clic para seleccionar</strong>
+          <p>Columnas esperadas: <code>nombre, categoria, precio, precioAntes, stock, img, tag, tagTipo, descripcion</code></p>
+          <input type="file" id="csvFile" accept=".csv,text/csv" style="display:none">
+        </div>
+        <div id="csvPreviewArea" class="hidden">
+          <div class="csv-actions">
+            <span class="badge" id="csvCountBadge"></span>
+            <button class="btn ok" id="csvImportBtn" type="button">Importar todos</button>
+            <button class="btn secondary small" id="csvClearBtn" type="button">Cancelar</button>
+            <div class="status" id="csvStatus"></div>
+          </div>
+          <div class="csv-preview">
+            <table>
+              <thead><tr><th>#</th><th>Nombre</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Etiqueta</th><th>Estado</th></tr></thead>
+              <tbody id="csvTbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
     <div class="toolbar">
       <input id="search" type="search" placeholder="Buscar por nombre, categoría o etiqueta">
       <div class="status" id="count"></div>
@@ -150,7 +180,119 @@ $('search').addEventListener('input', renderTable);
 $('clearBtn').addEventListener('click', clearForm);
 $('reloadBtn').addEventListener('click', loadProducts);
 $('logoutBtn').addEventListener('click', async function(){ await api('/api/admin/logout',{method:'POST'}).catch(function(){}); showLogin(); });
-api('/api/admin/session').then(loadProducts).catch(showLogin);
+ 
+// ── CSV IMPORT ──────────────────────────────────────────────────────────────
+var csvRows = [];
+var CSV_COLS_MAP = { nombre:'nombre', category:'categoria', categoria:'categoria', price:'precio', precio:'precio', precioantes:'precioAntes', precioAntes:'precioAntes', before:'precioAntes', stock:'stock', img:'img', image:'img', imagen:'img', tag:'tag', etiqueta:'tag', tagTipo:'tagTipo', tagcolor:'tagTipo', color:'tagTipo', descripcion:'descripcion', description:'descripcion', desc:'descripcion' };
+var CSV_CATS = ['cuidado','perfumes','maquillaje','neceser','escolares'];
+ 
+function parseCsvLine(line){
+  var res=[], cur='', inQ=false;
+  for(var i=0;i<line.length;i++){
+    var c=line[i];
+    if(c==='"'){ inQ=!inQ; continue; }
+    if(c===','&&!inQ){ res.push(cur.trim()); cur=''; continue; }
+    cur+=c;
+  }
+  res.push(cur.trim());
+  return res;
+}
+ 
+function parseCsv(text){
+  var lines = text.replace(/\r\n/g,'\n').replace(/\r/g,'\n').split('\n').filter(function(l){return l.trim()});
+  if(lines.length<2) return [];
+  var headers = parseCsvLine(lines[0]).map(function(h){return h.toLowerCase().replace(/\s/g,'')});
+  var mapped = headers.map(function(h){return CSV_COLS_MAP[h]||null});
+  return lines.slice(1).map(function(line,i){
+    var vals = parseCsvLine(line);
+    var row={};
+    mapped.forEach(function(field,j){ if(field) row[field]=vals[j]||''; });
+    row._row = i+2;
+    row._ok = !!(row.nombre && row.precio);
+    row._err = !row.nombre ? 'Sin nombre' : !row.precio ? 'Sin precio' : '';
+    // normalize categoria
+    if(row.categoria){
+      var cat = row.categoria.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+      var match = CSV_CATS.find(function(c){ return cat.indexOf(c)>-1 || c.indexOf(cat)>-1; });
+      if(match) row.categoria=match;
+    }
+    return row;
+  }).filter(function(r){return Object.keys(r).length>3});
+}
+ 
+function renderCsvPreview(rows){
+  $('csvTbody').innerHTML = rows.map(function(r){
+    var icon = r._ok ? '✅' : '⚠️ '+r._err;
+    return '<tr'+(r._ok?'':' style="opacity:.5"')+'><td>'+r._row+'</td><td>'+escapeHtml(r.nombre||'—')+'</td><td>'+escapeHtml(r.categoria||'—')+'</td><td>'+(r.precio||'—')+'</td><td>'+(r.stock||'—')+'</td><td>'+escapeHtml(r.tag||'')+'</td><td>'+icon+'</td></tr>';
+  }).join('');
+  var good = rows.filter(function(r){return r._ok}).length;
+  $('csvCountBadge').textContent = good + ' productos listos' + (rows.length-good ? ' · '+(rows.length-good)+' con errores' : '');
+  $('csvPreviewArea').classList.remove('hidden');
+}
+ 
+function handleCsvFile(file){
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e){
+    csvRows = parseCsv(e.target.result);
+    if(!csvRows.length){ status($('csvStatus'),'No se encontraron filas válidas','err'); return; }
+    renderCsvPreview(csvRows);
+    status($('csvStatus'),'');
+  };
+  reader.readAsText(file, 'UTF-8');
+}
+ 
+$('csvZone').addEventListener('click', function(){ $('csvFile').click(); });
+$('csvFile').addEventListener('change', function(){ handleCsvFile(this.files[0]); this.value=''; });
+$('csvZone').addEventListener('dragover', function(e){ e.preventDefault(); this.classList.add('drag'); });
+$('csvZone').addEventListener('dragleave', function(){ this.classList.remove('drag'); });
+$('csvZone').addEventListener('drop', function(e){ e.preventDefault(); this.classList.remove('drag'); handleCsvFile(e.dataTransfer.files[0]); });
+ 
+$('csvClearBtn').addEventListener('click', function(){
+  csvRows=[];
+  $('csvPreviewArea').classList.add('hidden');
+  status($('csvStatus'),'');
+});
+ 
+$('csvImportBtn').addEventListener('click', async function(){
+  var toImport = csvRows.filter(function(r){return r._ok});
+  if(!toImport.length) return;
+  status($('csvStatus'),'Importando 0 / '+toImport.length+'...');
+  $('csvImportBtn').disabled=true;
+  var ok=0, errors=0;
+  for(var i=0;i<toImport.length;i++){
+    var r = toImport[i];
+    var p = {
+      nombre: r.nombre||'',
+      categoria: r.categoria||'cuidado',
+      descripcion: r.descripcion||'',
+      precio: Number(r.precio)||0,
+      precioAntes: r.precioAntes===''||r.precioAntes==null ? null : Number(r.precioAntes),
+      stock: Number(r.stock)||0,
+      tag: r.tag||'',
+      tagTipo: r.tagTipo||'',
+      img: r.img||''
+    };
+    try{
+      var saved = await api('/api/admin/products', {method:'POST', body:JSON.stringify(p)});
+      products.unshift(saved.product);
+      ok++;
+      status($('csvStatus'),'Importando '+ok+' / '+toImport.length+'...');
+    }catch(e){ errors++; }
+  }
+  renderTable();
+  $('csvImportBtn').disabled=false;
+  status($('csvStatus'), ok+' importados'+(errors?' · '+errors+' errores':''), errors?'':'ok');
+  csvRows=[];
+  setTimeout(function(){ $('csvPreviewArea').classList.add('hidden'); status($('csvStatus'),''); }, 3000);
+});
+ 
+$('csvToggleBtn').addEventListener('click', function(){
+  var body = $('csvBody');
+  var hidden = body.classList.toggle('hidden');
+  this.textContent = hidden ? 'Mostrar' : 'Ocultar';
+});
+ 
 </script>
 </body>
 </html>
