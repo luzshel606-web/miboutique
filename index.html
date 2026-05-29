@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>La Boutique de Luz â€” Perfumes y Belleza</title>
+<title>La Boutique de Luz - Perfumes y Belleza</title>
 <meta name="theme-color" content="#0f0f11" />
 <meta name="description" content="Perfumes, skincare y belleza premium en Cochabamba, Bolivia." />
 
@@ -76,7 +76,7 @@ body::before{
     radial-gradient(circle at bottom right, rgba(255,79,216,.05), transparent 30%);
 }
 
-/* â”€â”€ HEADER â”€â”€ */
+/* HEADER */
 .site-header{
   position:sticky;
   top:0;
@@ -196,7 +196,7 @@ body::before{
 .nchip.on{color:var(--accent);border-bottom-color:var(--accent)}
 .nchip:hover:not(.on){color:var(--text)}
 
-/* â”€â”€ HERO â”€â”€ */
+/* HERO */
 .hero{
   max-width:1400px;margin:0 auto;
   min-height:72vh;
@@ -253,7 +253,7 @@ body::before{
   border:1px solid var(--border);
 }
 
-/* â”€â”€ INFO STRIP â”€â”€ */
+/* INFO STRIP */
 .info-strip{
   max-width:1400px;margin:0 auto;
   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
@@ -269,7 +269,7 @@ body::before{
 .info-kicker{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 .info-text{margin-top:7px;font-size:.92rem;line-height:1.5;font-weight:500}
 
-/* â”€â”€ FEATURED â”€â”€ */
+/* FEATURED */
 .featured-section{
   max-width:1400px;margin:0 auto;
   padding:0 20px 36px;
@@ -309,7 +309,7 @@ body::before{
 .featured-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
 .featured-price{font-size:.97rem;font-weight:800}
 
-/* â”€â”€ CATALOG â”€â”€ */
+/* CATALOG */
 .catalog-section{
   max-width:1400px;margin:0 auto;
   padding:0 20px 80px;
@@ -335,7 +335,7 @@ body::before{
   cursor:pointer;
 }
 
-/* â”€â”€ PRODUCT GRID â”€â”€ */
+/* PRODUCT GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -431,7 +431,7 @@ body::before{
 .btn-add-cart:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
 .btn-disabled{background:var(--card2);color:var(--muted);cursor:default}
 
-/* â”€â”€ CART OVERLAY â”€â”€ */
+/* CART OVERLAY */
 .cart-overlay,.sheet-overlay,.lightbox{display:none;position:fixed;inset:0;z-index:100}
 .cart-overlay.on,.sheet-overlay.on,.lightbox.on{display:block}
 .backdrop,.sheet-bg{position:absolute;inset:0;background:rgba(0,0,0,.6)}
@@ -491,7 +491,7 @@ body::before{
   color:var(--muted);text-decoration:underline;cursor:pointer;font-size:.82rem;
 }
 
-/* â”€â”€ SHEET â”€â”€ */
+/* SHEET */
 .sheet{padding-bottom:calc(18px + var(--safe-b))}
 .sheet-image{background:var(--card2);padding:10px 10px 0}
 .sheet-image button{width:100%;border:none;background:none;padding:0;cursor:pointer}
@@ -525,7 +525,7 @@ body::before{
 .sheet-wa-btn:hover{border-color:var(--accent);color:var(--accent)}
 .sheet-close-btn{background:var(--card2);color:var(--muted)}
 
-/* â”€â”€ LIGHTBOX â”€â”€ */
+/* LIGHTBOX */
 .lightbox{background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center}
 .lightbox.on{display:flex}
 .lb-box{width:min(100%,920px);padding:18px}
@@ -536,7 +536,7 @@ body::before{
 .lb-img-wrap img.zoomed{transform:scale(1.9);cursor:zoom-out}
 .lb-caption{text-align:center;color:rgba(255,255,255,.7);font-family:var(--serif);font-size:1rem;margin-top:12px}
 
-/* â”€â”€ TOAST â”€â”€ */
+/* TOAST */
 .toast{
   position:fixed;left:50%;bottom:calc(70px + var(--safe-b));
   transform:translateX(-50%) translateY(10px);
@@ -548,7 +548,7 @@ body::before{
 }
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* â”€â”€ FOOTER â”€â”€ */
+/* FOOTER */
 .site-footer{
   background:var(--card);
   border-top:1px solid var(--border);
@@ -561,11 +561,11 @@ body::before{
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
 
-/* â”€â”€ FADE ANIMATION â”€â”€ */
+/* FADE ANIMATION */
 .fade{opacity:0;transform:translateY(28px);transition:1s}
 .fade.show{opacity:1;transform:none}
 
-/* â”€â”€ RESPONSIVE â”€â”€ */
+/* RESPONSIVE */
 @media(min-width:700px){
   .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .card-actions{flex-direction:row}
@@ -642,801 +642,7 @@ var CONFIG = {
   moneda: "Bs"
 };
 
-var PRODUCTOS_FALLBACK = [
-  {
-    nombre: "Borradores",
-    categoria: "escolares",
-    descripcion: "Borradores de diferentes colores y formas para tus necesidades escolares.",
-    precio: 10,
-    precioAntes: null,
-    stock: 22,
-    tag: "",
-    tagTipo: "",
-    img: ""
-  },
-  {
-    nombre: "Hidratante de labios",
-    categoria: "cuidado",
-    descripcion: "Hidratante de labios edición Labubu para mantener tus labios suaves y humectados durante todo el día.",
-    precio: 8,
-    precioAntes: null,
-    stock: 1,
-    tag: "",
-    tagTipo: "",
-    img: "https://img-73s.pages.dev/IMG-20260423-WA0048 (1).png"
-  },
-  {
-    nombre: "Labiales",
-    categoria: "maquillaje",
-    descripcion: "Labiales de diferentes colores para resaltar tu sonrisa.",
-    precio: 16,
-    precioAntes: null,
-    stock: 16,
-    tag: "Karité",
-    tagTipo: "rosa",
-    img: ""
-  },
-  {
-    nombre: "Kit de borlas y esponjas",
-    categoria: "maquillaje",
-    descripcion: "Kit de borlas y esponjas para aplicar maquillaje de manera uniforme.",
-    precio: 32,
-    precioAntes: 35,
-    stock: 12,
-    tag: "",
-    tagTipo: "",
-    img: ""
-  },
-  {
-    nombre: "Perfume 35ml",
-    categoria: "perfumes",
-    descripcion: "Perfumes estilo palito de diferentes fragancias para cada ocasión.",
-    precio: 20,
-    precioAntes: null,
-    stock: 12,
-    tag: "V.V.love",
-    tagTipo: "sale",
-    img: ""
-  },
-  {
-    nombre: "Perfume 30ml",
-    categoria: "perfumes",
-    descripcion: "Perfumes unisex de diferentes fragancias para cada ocasión.",
-    precio: 20,
-    precioAntes: null,
-    stock: 10,
-    tag: "V.V.love",
-    tagTipo: "sale",
-    img: ""
-  },
-  {
-    nombre: "Set de 4 Cepillos",
-    categoria: "cuidado",
-    descripcion: "Set de 4 cepillos para el cuidado de tu cabello en rosa y celeste.",
-    precio: 35,
-    precioAntes: null,
-    stock: 6,
-    tag: "",
-    tagTipo: "",
-    img: "https://img-73s.pages.dev/IMG-20260423-WA0046.png"
-  },
-  {
-    nombre: "Pack de 4 Perfumes",
-    categoria: "perfumes",
-    descripcion: "Perfume femenino que incluye 4 perfumes con fragancias variadas y duraderas.",
-    precio: 50,
-    precioAntes: null,
-    stock: 7,
-    tag: "V.V.love",
-    tagTipo: "sale",
-    img: ""
-  },
-  {
-    nombre: "Block de notas",
-    categoria: "escolares",
-    descripcion: "Block de notas con separador en forma de osito para organizar tus apuntes.",
-    precio: 10,
-    precioAntes: null,
-    stock: 6,
-    tag: "",
-    tagTipo: "",
-    img: "https://img-73s.pages.dev/IMG-20260423-WA0051.png"
-  },
-  {
-    nombre: "Delineador de ojos",
-    categoria: "maquillaje",
-    descripcion: "Delineador de ojos de diferentes colores para resaltar tu mirada.",
-    precio: 10,
-    precioAntes: null,
-    stock: 6,
-    tag: "Karité",
-    tagTipo: "rosa",
-    img: ""
-  },
-  {
-    nombre: "Kit desmaquillante",
-    categoria: "maquillaje",
-    descripcion: "Kit de desmaquillante para eliminar el maquillaje de manera efectiva.",
-    precio: 30,
-    precioAntes: 35,
-    stock: 5,
-    tag: "",
-    tagTipo: "",
-    img: ""
-  },
-  {
-    nombre: "Paleta Verde Neón",
-    categoria: "maquillaje",
-    descripcion: "Paleta de colores carnavaleros para crear looks divertidos y modernos.",
-    precio: 120,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0025.jpg"
-  },
-  {
-    nombre: "Paleta Rojo Neón",
-    categoria: "maquillaje",
-    descripcion: "Paleta de colores carnavaleros para crear looks divertidos y modernos.",
-    precio: 120,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0024.jpg"
-  },
-  {
-    nombre: "Paleta Naranja Neón",
-    categoria: "maquillaje",
-    descripcion: "Paleta de colores carnavaleros para crear looks divertidos y modernos.",
-    precio: 120,
-    precioAntes: null,
-    stock: 2,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0026.jpg"
-  },
-  {
-    nombre: "Gloss Chicas Super Poderosas",
-    categoria: "maquillaje",
-    descripcion: "Estos lip oils de las Chicas Super Poderosas son el complemento perfecto para tu maquillaje, con un brillo intenso. 2 unidades celestes, 1 rosa y una verde.",
-    precio: 100,
-    precioAntes: null,
-    stock: 4,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: ""
-  },
-  {
-    nombre: "Sombra Compacto Bob Esponja",
-    categoria: "maquillaje",
-    descripcion: "Sombra compacta de la colección Bob Esponja en 3 diferentes tonos.",
-    precio: 120,
-    precioAntes: null,
-    stock: 0,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0022.jpg"
-  },
-  {
-    nombre: "Aceite Limpiador Centella Neutro",
-    categoria: "maquillaje",
-    descripcion: "Aceite limpiador con ingredientes naturales para una limpieza profunda.",
-    precio: 200,
-    precioAntes: null,
-    stock: 3,
-    tag: "Skin 1004",
-    tagTipo: "gold",
-    img: "https://img-73s.pages.dev/11245543.webp"
-  },
-  {
-    nombre: "Perfumes Medianos",
-    categoria: "perfumes",
-    descripcion: "Perfume unisex de diferentes fragancias para cada ocasión.",
-    precio: 50,
-    precioAntes: null,
-    stock: 3,
-    tag: "V.V.love",
-    tagTipo: "sale",
-    img: ""
-  },
-  {
-    nombre: "Paleta Peluche",
-    categoria: "maquillaje",
-    descripcion: "Paleta de colores inspirada en personajes de peluche para crear looks adorables.",
-    precio: 140,
-    precioAntes: null,
-    stock: 1,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0002.jpg"
-  },
-  {
-    nombre: "Paleta Peluche 2",
-    categoria: "maquillaje",
-    descripcion: "Paleta de colores inspirada en personajes de peluche para crear looks adorables.",
-    precio: 140,
-    precioAntes: null,
-    stock: 1,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0001.jpg"
-  },
-  {
-    nombre: "Lip Combo",
-    categoria: "maquillaje",
-    descripcion: "Combo de labiales con diferentes tonos para crear looks variados.",
-    precio: 180,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0005.jpg"
-  },
-  {
-    nombre: "Lip Combo 2",
-    categoria: "maquillaje",
-    descripcion: "Combo de labiales con diferentes tonos para crear looks variados.",
-    precio: 180,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/11.jpeg"
-  },
-  {
-    nombre: "Mini Paleta",
-    categoria: "maquillaje",
-    descripcion: "Paleta en tonos rosa para un maquillaje rápido y sencillo.",
-    precio: 40,
-    precioAntes: null,
-    stock: 1,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0012.jpg"
-  },
-  {
-    nombre: "Mini Paleta 2",
-    categoria: "maquillaje",
-    descripcion: "Paleta en tonos cafés para un maquillaje rápido y sencillo.",
-    precio: 40,
-    precioAntes: null,
-    stock: 1,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: "https://img-73s.pages.dev/KC246212_10.webp"
-  },
-  {
-    nombre: "Contorno Nice",
-    categoria: "maquillaje",
-    descripcion: "Contorno de ojos en tonos neutros para un maquillaje suave y natural.",
-    precio: 8,
-    precioAntes: null,
-    stock: 2,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: "https://img-73s.pages.dev/KC245215-6-COLORS-FACE-PALETTE.webp"
-  },
-  {
-    nombre: "Rubor En Crema",
-    categoria: "maquillaje",
-    descripcion: "Rubor en crema para un maquillaje suave y natural.",
-    precio: 40,
-    precioAntes: null,
-    stock: 2,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0028.png"
-  },
-  {
-    nombre: "Crema Hidratante De Manos",
-    categoria: "cuidado",
-    descripcion: "Crema hidratante de manos con ingredientes naturales para mantener tus manos suaves y humectadas.",
-    precio: 15,
-    precioAntes: null,
-    stock: 1,
-    tag: "Bioaqua",
-    tagTipo: "celeste",
-    img: "https://img-73s.pages.dev/515b75a69ec1aedb14bda99d0459a8cd.jpg_720x720q80.jpg"
-  },
-  {
-    nombre: "Crema Para Manos",
-    categoria: "cuidado",
-    descripcion: "Crema para manos con ingredientes naturales para mantener tus manos suaves y humectadas.",
-    precio: 15,
-    precioAntes: null,
-    stock: 1,
-    tag: "",
-    tagTipo: "",
-    img: ""
-  },
-  {
-    nombre: "Neceser Rosa",
-    categoria: "neceser",
-    descripcion: "Neceser de color rosa para guardar tus productos de belleza de manera organizada y elegante.",
-    precio: 70,
-    precioAntes: null,
-    stock: 2,
-    tag: "",
-    tagTipo: "",
-    img: ""
-  },
-  {
-    nombre: "Neceser Café Ecocuero",
-    categoria: "neceser",
-    descripcion: "Neceser de color café hecha de ecocuero para guardar tus productos de belleza de manera organizada y elegante.",
-    precio: 70,
-    precioAntes: null,
-    stock: 2,
-    tag: "",
-    tagTipo: "",
-    img: ""
-  },
-  {
-    nombre: "Protector Solar Blanco Centella",
-    categoria: "cuidado",
-    descripcion: "",
-    precio: 130,
-    precioAntes: null,
-    stock: 2,
-    tag: "Skin 1004",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Protector Solar Rosa Centella",
-    categoria: "cuidado",
-    descripcion: "",
-    precio: 130,
-    precioAntes: null,
-    stock: 2,
-    tag: "Skin 1004",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Jabón Centella Neutro",
-    categoria: "cuidado",
-    descripcion: "",
-    precio: 120,
-    precioAntes: null,
-    stock: 2,
-    tag: "Skin 1004",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Contorno De Ojos Centella",
-    categoria: "cuidado",
-    descripcion: "Contorno de ojos con ingredientes naturales para un cuidado suave y efectivo de la piel alrededor de los ojos.",
-    precio: 120,
-    precioAntes: null,
-    stock: 2,
-    tag: "Skin 1004",
-    tagTipo: "gold",
-    img: "https://img-73s.pages.dev/2.webp"
-  },
-  {
-    nombre: "Hidratante De Labios",
-    categoria: "cuidado",
-    descripcion: "Hidratante de labios con ingredientes naturales para mantener tus labios suaves y humectados durante todo el día.",
-    precio: 10,
-    precioAntes: null,
-    stock: 1,
-    tag: "Bioaqua",
-    tagTipo: "celeste",
-    img: "https://img-73s.pages.dev/IMG-20260423-WA0050.png"
-  },
-  {
-    nombre: "Paleta Barbie",
-    categoria: "maquillaje",
-    descripcion: "Paleta de colores inspirada en la icónica muñeca Barbie para crear looks divertidos y femeninos.",
-    precio: 400,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/10.webp"
-  },
-  {
-    nombre: "Paleta Lotería",
-    categoria: "maquillaje",
-    descripcion: "Paleta de lotería para crear looks divertidos y femeninos.",
-    precio: 400,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/12.webp"
-  },
-  {
-    nombre: "Paleta Tease Me",
-    categoria: "maquillaje",
-    descripcion: "Paleta de colores inspirada para crear looks divertidos y femeninos.",
-    precio: 350,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/7.webp"
-  },
-  {
-    nombre: "Parches De Las Chicas Super Poderosas",
-    categoria: "cuidado",
-    descripcion: "Parches para el cuidado de la piel con ingredientes naturales.",
-    precio: 80,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: ""
-  },
-  {
-    nombre: "Set De Rubores",
-    categoria: "maquillaje",
-    descripcion: "Set de rubores para crear looks divertidos y femeninos.",
-    precio: 90,
-    precioAntes: null,
-    stock: 1,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Paleta Peluche Grande",
-    categoria: "maquillaje",
-    descripcion: "Paleta de colores inspirada en el peluche grande para crear looks divertidos y femeninos.",
-    precio: 200,
-    precioAntes: null,
-    stock: 1,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0003.jpg"
-  },
-  {
-    nombre: "Rubor Chicas Super Poderosas",
-    categoria: "maquillaje",
-    descripcion: "Rubor para crear looks divertidos y femeninos.",
-    precio: 90,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: ""
-  },
-  {
-    nombre: "Duo De Rubores",
-    categoria: "maquillaje",
-    descripcion: "Duo de rubores para crear looks divertidos y femeninos.",
-    precio: 350,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: ""
-  },
-  {
-    nombre: "Iluminador Gotta Glow Barbie",
-    categoria: "maquillaje",
-    descripcion: "Iluminador para crear looks divertidos y femeninos.",
-    precio: 160,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0008.jpg"
-  },
-  {
-    nombre: "Spray De Yeri Mua",
-    categoria: "cuidado",
-    descripcion: "Spray para el cuidado de la piel con ingredientes naturales.",
-    precio: 160,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/yerimua-unique-setting-spray-4800282.webp"
-  },
-  {
-    nombre: "Spray Barbie",
-    categoria: "cuidado",
-    descripcion: "Spray para el cuidado de la piel con ingredientes naturales.",
-    precio: 160,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0010.jpg"
-  },
-  {
-    nombre: "Rubor De Bob Esponja",
-    categoria: "maquillaje",
-    descripcion: "Rubor para crear looks divertidos y femeninos.",
-    precio: 90,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: ""
-  },
-  {
-    nombre: "Set De Navidad",
-    categoria: "maquillaje",
-    descripcion: "Set de productos con estilo navideño.",
-    precio: 60,
-    precioAntes: null,
-    stock: 1,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: "https://img-73s.pages.dev/KC1149_2.webp"
-  },
-  {
-    nombre: "Limpia Brochas",
-    categoria: "maquillaje",
-    descripcion: "Limpia brochas para mantenerlas en perfectas condiciones.",
-    precio: 10,
-    precioAntes: null,
-    stock: 1,
-    tag: "",
-    tagTipo: "",
-    img: ""
-  },
-  {
-    nombre: "Gloss Kevin&Coco",
-    categoria: "maquillaje",
-    descripcion: "Gloss para resaltar los labios.",
-    precio: 25,
-    precioAntes: null,
-    stock: 1,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Set Kevin&Coco",
-    categoria: "maquillaje",
-    descripcion: "Set de productos de la marca Kevin&Coco.",
-    precio: 180,
-    precioAntes: null,
-    stock: 1,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Paleta Carnival",
-    categoria: "maquillaje",
-    descripcion: "Paleta de colores con amplia variedad de tonos irresistibles.",
-    precio: 150,
-    precioAntes: null,
-    stock: 1,
-    tag: "BPerfect x Stacey Marie",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0019.jpg"
-  },
-  {
-    nombre: "Paleta Chicas Super Poderosas",
-    categoria: "maquillaje",
-    descripcion: "Paleta de colores inspirada en el universo de las Chicas Super Poderosas.",
-    precio: 400,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: "https://img-73s.pages.dev/powerpuff-girls-paleta-de-sombras-1.webp"
-  },
-  {
-    nombre: "Gloss Beauty Creations",
-    categoria: "maquillaje",
-    descripcion: "Gloss para resaltar los labios.",
-    precio: 80,
-    precioAntes: null,
-    stock: 1,
-    tag: "Beauty Creations",
-    tagTipo: "sale",
-    img: ""
-  },
-  {
-    nombre: "Labial Con Llavero",
-    categoria: "maquillaje",
-    descripcion: "Labial con llavero para un estilo único.",
-    precio: 30,
-    precioAntes: null,
-    stock: 1,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Paleta Cookies",
-    categoria: "maquillaje",
-    descripcion: "Paleta de colores inspirada en el mundo de las galletas.",
-    precio: 90,
-    precioAntes: null,
-    stock: 1,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: "https://img-73s.pages.dev/IMG-20260424-WA0030.jpg"
-  },
-  {
-    nombre: "Jabón Facial",
-    categoria: "cuidado",
-    descripcion: "Jabon para el cuidado del rostro con ingredientes naturales.",
-    precio: 40,
-    precioAntes: 50,
-    stock: 1,
-    tag: "Bioaqua",
-    tagTipo: "celeste",
-    img: ""
-  },
-  {
-    nombre: "Iluminador Liquido",
-    categoria: "maquillaje",
-    descripcion: "Iluminador líquido para un acabado brillante.",
-    precio: 30,
-    precioAntes: null,
-    stock: 1,
-    tag: "Kevin&Coco",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Neceser Transparente",
-    categoria: "neceser",
-    descripcion: "Neceser transparente para almacenar tus productos de belleza.",
-    precio: 60,
-    precioAntes: null,
-    stock: 1,
-    tag: "",
-    tagTipo: "",
-    img: ""
-  },
-  {
-    nombre: "Neceser De Cuero",
-    categoria: "neceser",
-    descripcion: "Neceser de cuero para almacenar tus productos de belleza.",
-    precio: 80,
-    precioAntes: null,
-    stock: 1,
-    tag: "",
-    tagTipo: "",
-    img: ""
-  },
-  {
-    nombre: "Dr.Althea 147",
-    categoria: "cuidado",
-    descripcion: "Crema facial para el cuidado de la piel con ingredientes naturales.",
-    precio: 130,
-    precioAntes: null,
-    stock: 1,
-    tag: "Dr.Althea",
-    tagTipo: "gold",
-    img: "https://myskingt.com/cdn/shop/files/PreciosMYSKIN-2025-06-09T113025.122.png?v=1749490262&width=1946"
-  },
-  {
-    nombre: "Crema Mixsoon",
-    categoria: "cuidado",
-    descripcion: "Crema para el cuidado de la piel con ingredientes naturales.",
-    precio: 150,
-    precioAntes: null,
-    stock: 1,
-    tag: "Mixsoon",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Crema Tea Trica Centella",
-    categoria: "cuidado",
-    descripcion: "Crema para el cuidado de la piel con ingredientes naturales.",
-    precio: 120,
-    precioAntes: null,
-    stock: 1,
-    tag: "Skin 1004",
-    tagTipo: "gold",
-    img: "https://img-73s.pages.dev/21122.webp"
-  },
-  {
-    nombre: "Protector Solar Café Centella",
-    categoria: "cuidado",
-    descripcion: "Protector solar para el cuidado de la piel con ingredientes naturales.",
-    precio: 130,
-    precioAntes: null,
-    stock: 1,
-    tag: "Skin 1004",
-    tagTipo: "gold",
-    img: "https://img-73s.pages.dev/1.jpg"
-  },
-  {
-    nombre: "Crema Blanca Centella",
-    categoria: "cuidado",
-    descripcion: "Crema para el cuidado de la piel con ingredientes naturales.",
-    precio: 130,
-    precioAntes: null,
-    stock: 1,
-    tag: "Skin 1004",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Crema Café Centella",
-    categoria: "cuidado",
-    descripcion: "Crema para el cuidado de la piel con ingredientes naturales.",
-    precio: 130,
-    precioAntes: null,
-    stock: 1,
-    tag: "Skin 1004",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Jabón Facial Mixsoon",
-    categoria: "cuidado",
-    descripcion: "Jabon para el cuidado del rostro con ingredientes naturales.",
-    precio: 130,
-    precioAntes: 150,
-    stock: 1,
-    tag: "Mixsoon",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Protector Solar Mixsoon",
-    categoria: "cuidado",
-    descripcion: "Protector solar para el cuidado de la piel con ingredientes naturales.",
-    precio: 130,
-    precioAntes: null,
-    stock: 1,
-    tag: "Mixsoon",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Tonico Centella Celeste",
-    categoria: "cuidado",
-    descripcion: "Tonico para el cuidado de la piel con ingredientes naturales.",
-    precio: 150,
-    precioAntes: null,
-    stock: 1,
-    tag: "Skin 1004",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Ampolla Centella Café",
-    categoria: "cuidado",
-    descripcion: "Ampolla para el cuidado de la piel con ingredientes naturales.",
-    precio: 150,
-    precioAntes: null,
-    stock: 1,
-    tag: "Skin 1004",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Jabón Facial Centella Rosa",
-    categoria: "cuidado",
-    descripcion: "Jabon para el cuidado del rostro con ingredientes naturales.",
-    precio: 150,
-    precioAntes: null,
-    stock: 1,
-    tag: "Skin 1004",
-    tagTipo: "gold",
-    img: ""
-  },
-  {
-    nombre: "Set De Skincare Leopardo",
-    categoria: "cuidado",
-    descripcion: "Set de productos para el cuidado de la piel con ingredientes naturales.",
-    precio: 50,
-    precioAntes: null,
-    stock: 1,
-    tag: "",
-    tagTipo: "",
-    img: ""
-  }
-];
-var PRODUCTOS = PRODUCTOS_FALLBACK.slice();
+var PRODUCTOS = [];
 
 function normalizeProduct(p, i){
   p = p || {};
@@ -1464,8 +670,8 @@ async function loadProductsFromKV(){
     PRODUCTOS = list.map(normalizeProduct);
     renderAll();
   }catch(err){
-    console.warn('No se pudieron cargar productos desde KV. Usando respaldo local.', err);
-    PRODUCTOS = PRODUCTOS_FALLBACK.map(normalizeProduct);
+    console.warn('No se pudieron cargar productos desde el admin.', err);
+    PRODUCTOS = [];
     renderAll();
   }
 }
@@ -1482,7 +688,7 @@ async function loadProductsFromKV(){
       <a class="hbtn" id="fbBtn" href="#" target="_blank" rel="noopener" title="Facebook">
         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
       </a>
-      <button class="hbtn" id="themeBtn" title="Cambiar tema">🌙</button>
+      <button class="hbtn" id="themeBtn" title="Cambiar tema">&#9790;</button>
       <button class="cart-btn" type="button" onclick="openCart()">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
         <span>Carrito</span>
@@ -1504,7 +710,7 @@ async function loadProductsFromKV(){
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content fade">
-    <div class="badge">âœ¨ Premium Beauty Experience · Cochabamba</div>
+    <div class="badge">Premium Beauty Experience · Cochabamba</div>
     <h1>Belleza <span class="gradient">Premium</span><br>con Estilo</h1>
     <p>Perfumes, skincare y maquillaje seleccionado. Pedidos por WhatsApp, entrega en el Correo de Cochabamba.</p>
     <div class="hero-buttons">
@@ -1566,7 +772,7 @@ async function loadProductsFromKV(){
   <div class="cart-drawer">
     <div class="cart-head">
       <div class="cart-title">Tu pedido</div>
-      <button class="close-btn" type="button" onclick="closeCart()">âœ•</button>
+      <button class="close-btn" type="button" onclick="closeCart()">&times;</button>
     </div>
     <div class="cart-list" id="cartList"></div>
     <div class="cart-foot" id="cartFoot" style="display:none;">
@@ -1614,7 +820,7 @@ async function loadProductsFromKV(){
 <div class="lightbox" id="lightbox">
   <div class="lb-box">
     <div class="lb-top">
-      <button class="lb-close" type="button" onclick="closeLightbox()">âœ•</button>
+      <button class="lb-close" type="button" onclick="closeLightbox()">&times;</button>
     </div>
     <div class="lb-img-wrap" id="lbArea">
       <img id="lbImg" src="" alt="" onclick="toggleZoom(event)">
@@ -1636,16 +842,16 @@ async function loadProductsFromKV(){
 var themeBtn = document.getElementById('themeBtn');
 if(localStorage.getItem('theme') === 'light'){
   document.body.classList.add('light');
-  themeBtn.innerHTML = '☀️';
+  themeBtn.textContent = '\u2600';
 }
 themeBtn.addEventListener('click', function(){
   document.body.classList.toggle('light');
   if(document.body.classList.contains('light')){
     localStorage.setItem('theme','light');
-    themeBtn.innerHTML = '☀️';
+    themeBtn.textContent = '\u2600';
   } else {
     localStorage.setItem('theme','dark');
-    themeBtn.innerHTML = '🌙';
+    themeBtn.textContent = '\u263e';
   }
 });
 
@@ -1724,7 +930,7 @@ function renderFeatured(){
   var section = document.getElementById('featuredSection');
   var host = document.getElementById('featuredGrid');
   var q = document.getElementById('qInput').value.trim();
-  if(filtro!=='todos' || q){section.style.display='none';host.innerHTML='';return;}
+  if(filtro!=='todos' || q || !PRODUCTOS.length){section.style.display='none';host.innerHTML='';return;}
   section.style.display='block';
   var picks = PRODUCTOS.filter(function(p,i){return p.stock>0 && (/nuevo|top/i.test(p.tag||'')||i<6);}).slice(0,6);
   if(!picks.length) picks = PRODUCTOS.slice(0,6);
@@ -1856,7 +1062,7 @@ function addToCart(p){
   else carrito.push({p:p,q:1});
   updateBadge();
   renderCart();
-  showToast('Producto agregado âœ“');
+  showToast('Producto agregado');
 }
 function addFromSheet(){
   if(!actual||actual.stock<=0) return;
@@ -1923,11 +1129,9 @@ function observeFade(){
 
 buildChips();
 updateBadge();
-renderAll();
 loadProductsFromKV();
 observeFade();
 </script>
 <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "02d73552d4a34920b454c6ebe7edd44f"}'></script><!-- Cloudflare Pages Analytics -->
 </body>
 </html>
-
