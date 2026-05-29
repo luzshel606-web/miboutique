@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -14,7 +14,7 @@
 <main class="wrap">
   <section class="panel login" id="loginView">
     <h1>Panel secreto</h1>
-    <p>Ingresa la clave de administraciÃ³n para gestionar los productos de la tienda.</p>
+    <p>Ingresa la clave de administración para gestionar los productos de la tienda.</p>
     <form id="loginForm" class="field">
       <label for="password">Clave</label>
       <input id="password" type="password" autocomplete="current-password" required>
@@ -27,7 +27,7 @@
     <div class="top">
       <div class="brand">
         <h1>Productos</h1>
-        <p>Los cambios se guardan en Cloudflare KV y aparecen en la tienda pÃºblica.</p>
+        <p>Los cambios se guardan en Cloudflare KV y aparecen en la tienda pública.</p>
       </div>
       <div class="actions">
         <a class="btn secondary" href="/" target="_blank" rel="noopener">Ver tienda</a>
@@ -44,25 +44,25 @@
       <form id="productForm" class="row">
         <input type="hidden" id="id">
         <div class="field span-4"><label for="nombre">Nombre</label><input id="nombre" required></div>
-        <div class="field span-3"><label for="categoria">CategorÃ­a</label><select id="categoria"><option value="cuidado">Cuidado / Skincare</option><option value="perfumes">Perfumes</option><option value="maquillaje">Maquillaje</option><option value="neceser">Neceser</option><option value="escolares">Escolares</option></select></div>
+        <div class="field span-3"><label for="categoria">Categoría</label><select id="categoria"><option value="cuidado">Cuidado / Skincare</option><option value="perfumes">Perfumes</option><option value="maquillaje">Maquillaje</option><option value="neceser">Neceser</option><option value="escolares">Escolares</option></select></div>
         <div class="field span-2"><label for="precio">Precio</label><input id="precio" type="number" min="0" step="0.01" required></div>
         <div class="field span-2"><label for="precioAntes">Antes</label><input id="precioAntes" type="number" min="0" step="0.01"></div>
         <div class="field span-1"><label for="stock">Stock</label><input id="stock" type="number" min="0" step="1" required></div>
         <div class="field span-8"><label for="img">Imagen URL</label><input id="img" type="url" placeholder="https://..."></div>
         <div class="field span-2"><label for="tag">Etiqueta</label><input id="tag" placeholder="Nuevo, Oferta..."></div>
         <div class="field span-2"><label for="tagTipo">Color</label><select id="tagTipo"><option value="">Normal</option><option value="gold">Gold</option><option value="sale">Sale</option><option value="rosa">Rosa</option><option value="celeste">Celeste</option></select></div>
-        <div class="field span-12"><label for="descripcion">DescripciÃ³n</label><textarea id="descripcion"></textarea></div>
+        <div class="field span-12"><label for="descripcion">Descripción</label><textarea id="descripcion"></textarea></div>
         <div class="actions span-12"><button class="btn ok" type="submit">Guardar producto</button><div class="status" id="saveStatus"></div></div>
       </form>
     </section>
 
     <div class="toolbar">
-      <input id="search" type="search" placeholder="Buscar por nombre, categorÃ­a o etiqueta">
+      <input id="search" type="search" placeholder="Buscar por nombre, categoría o etiqueta">
       <div class="status" id="count"></div>
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Imagen</th><th>Producto</th><th>CategorÃ­a</th><th>Precio</th><th>Stock</th><th>Etiqueta</th><th>Acciones</th></tr></thead>
+        <thead><tr><th>Imagen</th><th>Producto</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Etiqueta</th><th>Acciones</th></tr></thead>
         <tbody id="tbody"></tbody>
       </table>
     </div>
@@ -123,7 +123,7 @@ function renderTable(){
 function escapeHtml(value){return String(value||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function editProduct(id){ var p = products.find(function(x){return x.id===id}); if(p) fillForm(p) }
 async function deleteProduct(id){
-  if(!confirm('Â¿Borrar este producto?')) return;
+  if(!confirm('¿Borrar este producto?')) return;
   await api('/api/admin/products/'+encodeURIComponent(id), {method:'DELETE'});
   products = products.filter(function(p){return p.id!==id});
   renderTable();
