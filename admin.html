@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin secreto - La Boutique de Luz</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--bg:#0f0f11;--panel:#17171c;--panel2:#1f1f27;--text:#fff;--muted:#a1a1aa;--line:rgba(255,255,255,.09);--accent:#ff4fd8;--accent2:#7c3aed;--danger:#ef4444;--ok:#10b981;--warn:#f59e0b;--radius:16px;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:inherit}.wrap{width:min(1180px,calc(100% - 28px));margin:0 auto;padding:28px 0 52px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}.brand h1{font-size:1.4rem;margin:0}.brand p{margin:6px 0 0;color:var(--muted);font-size:.9rem}.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 18px 50px rgba(0,0,0,.32)}.login{max-width:420px;margin:12vh auto 0;padding:24px}.login h1{margin:0 0 8px;font-size:1.5rem}.login p{margin:0 0 18px;color:var(--muted);line-height:1.5}.row{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:12px;padding:11px 12px;outline:none}.field textarea{min-height:86px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:rgba(255,79,216,.7)}.span-2{grid-column:span 2}.span-3{grid-column:span 3}.span-4{grid-column:span 4}.span-6{grid-column:span 6}.span-8{grid-column:span 8}.span-12{grid-column:span 12}.actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:999px;padding:11px 16px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2))}.btn.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}.btn.danger{background:var(--danger)}.btn.ok{background:var(--ok)}.btn.small{padding:8px 11px;font-size:.78rem}.form-card{padding:18px;margin-bottom:18px}.form-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.form-head h2{margin:0;font-size:1.08rem}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.toolbar input{max-width:340px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:999px;padding:11px 14px;outline:none}.status{font-size:.9rem;color:var(--muted)}.status.ok{color:var(--ok)}.status.err{color:var(--danger)}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:var(--radius)}table{width:100%;border-collapse:collapse;min-width:850px;background:var(--panel)}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 12px;vertical-align:middle}th{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);background:rgba(255,255,255,.03)}td{font-size:.9rem}.thumb{width:52px;height:52px;border-radius:12px;object-fit:cover;background:var(--panel2);border:1px solid var(--line)}.name{font-weight:800}.muted{color:var(--muted);font-size:.82rem}.stock.low{color:var(--warn)}.stock.out{color:var(--danger)}.hidden{display:none!important}@media(max-width:760px){.top,.toolbar,.form-head{align-items:flex-start;flex-direction:column}.row{grid-template-columns:1fr}.span-2,.span-3,.span-4,.span-6,.span-8,.span-12{grid-column:1}.toolbar input{max-width:none;width:100%}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="panel login" id="loginView">
+    <h1>Panel secreto</h1>
+    <p>Ingresa la clave de administraciÃ³n para gestionar los productos de la tienda.</p>
+    <form id="loginForm" class="field">
+      <label for="password">Clave</label>
+      <input id="password" type="password" autocomplete="current-password" required>
+      <button class="btn" type="submit">Entrar</button>
+      <div class="status" id="loginStatus"></div>
+    </form>
+  </section>
+
+  <section id="adminView" class="hidden">
+    <div class="top">
+      <div class="brand">
+        <h1>Productos</h1>
+        <p>Los cambios se guardan en Cloudflare KV y aparecen en la tienda pÃºblica.</p>
+      </div>
+      <div class="actions">
+        <a class="btn secondary" href="/" target="_blank" rel="noopener">Ver tienda</a>
+        <button class="btn secondary" id="reloadBtn" type="button">Recargar</button>
+        <button class="btn danger" id="logoutBtn" type="button">Salir</button>
+      </div>
+    </div>
+
+    <section class="panel form-card">
+      <div class="form-head">
+        <h2 id="formTitle">Nuevo producto</h2>
+        <button class="btn secondary small" id="clearBtn" type="button">Limpiar</button>
+      </div>
+      <form id="productForm" class="row">
+        <input type="hidden" id="id">
+        <div class="field span-4"><label for="nombre">Nombre</label><input id="nombre" required></div>
+        <div class="field span-3"><label for="categoria">CategorÃ­a</label><select id="categoria"><option value="cuidado">Cuidado / Skincare</option><option value="perfumes">Perfumes</option><option value="maquillaje">Maquillaje</option><option value="neceser">Neceser</option><option value="escolares">Escolares</option></select></div>
+        <div class="field span-2"><label for="precio">Precio</label><input id="precio" type="number" min="0" step="0.01" required></div>
+        <div class="field span-2"><label for="precioAntes">Antes</label><input id="precioAntes" type="number" min="0" step="0.01"></div>
+        <div class="field span-1"><label for="stock">Stock</label><input id="stock" type="number" min="0" step="1" required></div>
+        <div class="field span-8"><label for="img">Imagen URL</label><input id="img" type="url" placeholder="https://..."></div>
+        <div class="field span-2"><label for="tag">Etiqueta</label><input id="tag" placeholder="Nuevo, Oferta..."></div>
+        <div class="field span-2"><label for="tagTipo">Color</label><select id="tagTipo"><option value="">Normal</option><option value="gold">Gold</option><option value="sale">Sale</option><option value="rosa">Rosa</option><option value="celeste">Celeste</option></select></div>
+        <div class="field span-12"><label for="descripcion">DescripciÃ³n</label><textarea id="descripcion"></textarea></div>
+        <div class="actions span-12"><button class="btn ok" type="submit">Guardar producto</button><div class="status" id="saveStatus"></div></div>
+      </form>
+    </section>
+
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Buscar por nombre, categorÃ­a o etiqueta">
+      <div class="status" id="count"></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Imagen</th><th>Producto</th><th>CategorÃ­a</th><th>Precio</th><th>Stock</th><th>Etiqueta</th><th>Acciones</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<script>
+var products = [];
+var fallbackImg = 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=300&q=70';
+var fields = ['id','nombre','categoria','descripcion','precio','precioAntes','stock','tag','tagTipo','img'];
+function $(id){return document.getElementById(id)}
+function status(el,msg,cls){el.textContent=msg||'';el.className='status '+(cls||'')}
+function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+async function api(path, options){
+  var res = await fetch(path, Object.assign({headers:{'Content-Type':'application/json'}}, options||{}));
+  if(res.status===401){showLogin();throw new Error('No autorizado')}
+  var data = await res.json().catch(function(){return {}});
+  if(!res.ok) throw new Error(data.error || 'Error HTTP '+res.status);
+  return data;
+}
+function showLogin(){ $('loginView').classList.remove('hidden'); $('adminView').classList.add('hidden') }
+function showAdmin(){ $('loginView').classList.add('hidden'); $('adminView').classList.remove('hidden') }
+function productFromForm(){
+  return {
+    id:$('id').value,
+    nombre:$('nombre').value.trim(),
+    categoria:$('categoria').value,
+    descripcion:$('descripcion').value.trim(),
+    precio:Number($('precio').value||0),
+    precioAntes:$('precioAntes').value===''?null:Number($('precioAntes').value),
+    stock:Number($('stock').value||0),
+    tag:$('tag').value.trim(),
+    tagTipo:$('tagTipo').value,
+    img:$('img').value.trim()
+  };
+}
+function fillForm(p){
+  fields.forEach(function(f){ if($(f)) $(f).value = p && p[f] != null ? p[f] : '' });
+  $('formTitle').textContent = p && p.id ? 'Editar producto' : 'Nuevo producto';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function clearForm(){ $('productForm').reset(); $('id').value=''; $('formTitle').textContent='Nuevo producto'; status($('saveStatus'),'') }
+async function loadProducts(){
+  status($('count'),'Cargando...');
+  var data = await api('/api/admin/products');
+  products = data.products || [];
+  renderTable();
+  showAdmin();
+}
+function renderTable(){
+  var q = norm($('search').value);
+  var rows = products.filter(function(p){return !q || norm([p.nombre,p.categoria,p.tag,p.descripcion].join(' ')).indexOf(q)>-1});
+  $('count').textContent = rows.length + ' de ' + products.length + ' productos';
+  $('tbody').innerHTML = rows.map(function(p){
+    var stockClass = p.stock <= 0 ? 'out' : p.stock <= 3 ? 'low' : '';
+    return '<tr><td><img class="thumb" src="'+(p.img||fallbackImg)+'" onerror="this.src=\''+fallbackImg+'\'" alt=""></td><td><div class="name">'+escapeHtml(p.nombre)+'</div><div class="muted">'+escapeHtml(p.descripcion||'')+'</div></td><td>'+escapeHtml(p.categoria)+'</td><td>'+p.precio+' Bs'+(p.precioAntes?' <span class="muted">antes '+p.precioAntes+'</span>':'')+'</td><td><span class="stock '+stockClass+'">'+p.stock+'</span></td><td>'+escapeHtml(p.tag||'')+'</td><td><div class="actions"><button class="btn secondary small" type="button" onclick="editProduct(\''+p.id+'\')">Editar</button><button class="btn danger small" type="button" onclick="deleteProduct(\''+p.id+'\')">Borrar</button></div></td></tr>';
+  }).join('');
+}
+function escapeHtml(value){return String(value||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function editProduct(id){ var p = products.find(function(x){return x.id===id}); if(p) fillForm(p) }
+async function deleteProduct(id){
+  if(!confirm('Â¿Borrar este producto?')) return;
+  await api('/api/admin/products/'+encodeURIComponent(id), {method:'DELETE'});
+  products = products.filter(function(p){return p.id!==id});
+  renderTable();
+}
+$('loginForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  status($('loginStatus'),'Verificando...');
+  try{ await api('/api/admin/login',{method:'POST',body:JSON.stringify({password:$('password').value})}); status($('loginStatus'),''); await loadProducts(); }
+  catch(err){ status($('loginStatus'),err.message,'err') }
+});
+$('productForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  status($('saveStatus'),'Guardando...');
+  try{
+    var p = productFromForm();
+    var saved = p.id ? await api('/api/admin/products/'+encodeURIComponent(p.id), {method:'PUT',body:JSON.stringify(p)}) : await api('/api/admin/products', {method:'POST',body:JSON.stringify(p)});
+    var item = saved.product;
+    var i = products.findIndex(function(x){return x.id===item.id});
+    if(i>-1) products[i]=item; else products.unshift(item);
+    clearForm(); renderTable(); status($('saveStatus'),'Guardado','ok');
+  }catch(err){ status($('saveStatus'),err.message,'err') }
+});
+$('search').addEventListener('input', renderTable);
+$('clearBtn').addEventListener('click', clearForm);
+$('reloadBtn').addEventListener('click', loadProducts);
+$('logoutBtn').addEventListener('click', async function(){ await api('/api/admin/logout',{method:'POST'}).catch(function(){}); showLogin(); });
+api('/api/admin/session').then(loadProducts).catch(showLogin);
+</script>
+</body>
+</html>

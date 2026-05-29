@@ -1,0 +1,1933 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>La Boutique de Luz â€” Perfumes y Belleza</title>
+<meta name="theme-color" content="#0f0f11" />
+<meta name="description" content="Perfumes, skincare y belleza premium en Cochabamba, Bolivia." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0f0f11;
+  --card:#17171c;
+  --card2:#1d1d24;
+  --text:#ffffff;
+  --muted:#9ca3af;
+  --accent:#ff4fd8;
+  --accent2:#7c3aed;
+  --border:rgba(255,255,255,.08);
+  --shadow:0 10px 40px rgba(0,0,0,.45);
+  --line:rgba(255,255,255,.08);
+  --gold:#c9a96e;
+  --green:#10b981;
+  --orange:#f59e0b;
+  --gray:#6b7280;
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-t:env(safe-area-inset-top,0px);
+  --serif:'Playfair Display', Georgia, serif;
+  --sans:'Inter', system-ui, sans-serif;
+}
+
+.light{
+  --bg:#f7f7fb;
+  --card:#ffffff;
+  --card2:#f3f4f6;
+  --text:#111827;
+  --muted:#6b7280;
+  --border:rgba(0,0,0,.06);
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+  --line:rgba(0,0,0,.08);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  transition:background .35s, color .35s;
+  min-height:100dvh;
+}
+button,input,select{font:inherit}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* Ambient glow */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at top left, rgba(124,58,237,.18), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(255,79,216,.14), transparent 30%);
+  pointer-events:none;
+  z-index:-1;
+  transition:.35s;
+}
+.light body::before{
+  background:
+    radial-gradient(circle at top left, rgba(124,58,237,.06), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(255,79,216,.05), transparent 30%);
+}
+
+/* â”€â”€ HEADER â”€â”€ */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter:blur(20px);
+  background:rgba(10,10,12,.65);
+  border-bottom:1px solid var(--border);
+  padding-top:var(--safe-t);
+}
+.light .site-header{background:rgba(247,247,251,.85)}
+
+.header-top{
+  max-width:1400px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 20px;
+}
+
+.brand-wrap{}
+.brand-name{
+  display:block;
+  font-family:var(--serif);
+  font-size:1.4rem;
+  font-weight:700;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.brand-sub{
+  display:block;
+  margin-top:4px;
+  font-size:.58rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.header-actions{display:flex;align-items:center;gap:10px}
+
+.hbtn{
+  width:40px;height:40px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--text);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  transition:.22s;
+}
+.hbtn:hover{transform:translateY(-2px)}
+
+.cart-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  position:relative;
+  min-height:40px;padding:0 16px;
+  border:none;border-radius:999px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;
+  font-weight:700;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;
+  cursor:pointer;
+  box-shadow:0 8px 24px rgba(255,79,216,.3);
+  transition:.22s;
+}
+.cart-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,79,216,.45)}
+
+.cart-badge{
+  position:absolute;top:-7px;right:-7px;
+  min-width:22px;height:22px;padding:0 5px;
+  border-radius:999px;
+  background:#fff;border:2px solid var(--bg);
+  color:#111;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:800;
+  opacity:0;transform:scale(.7);transition:.22s;
+}
+.cart-badge.visible{opacity:1;transform:scale(1)}
+
+/* search */
+.search-bar{
+  max-width:1400px;
+  margin:0 auto;
+  padding:0 20px 12px;
+}
+.search-inner{
+  display:flex;align-items:center;gap:10px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:12px 16px;
+}
+.search-inner input{
+  background:transparent;border:none;outline:none;
+  color:var(--text);flex:1;font-size:.93rem;
+}
+.search-inner input::placeholder{color:var(--muted)}
+.search-ic{color:var(--muted)}
+
+/* category chips */
+.cat-bar{border-top:1px solid var(--border)}
+.cat-bar-inner{
+  max-width:1400px;margin:0 auto;
+  display:flex;overflow:auto;scrollbar-width:none;padding:0 20px;
+}
+.cat-bar-inner::-webkit-scrollbar{display:none}
+.nchip{
+  border:none;background:none;
+  color:var(--muted);
+  padding:12px 16px;white-space:nowrap;
+  font-size:.73rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  border-bottom:2px solid transparent;
+  cursor:pointer;transition:.2s;
+}
+.nchip.on{color:var(--accent);border-bottom-color:var(--accent)}
+.nchip:hover:not(.on){color:var(--text)}
+
+/* â”€â”€ HERO â”€â”€ */
+.hero{
+  max-width:1400px;margin:0 auto;
+  min-height:72vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  padding:80px 20px;
+}
+.hero-content{max-width:820px}
+
+.badge{
+  display:inline-flex;
+  padding:9px 18px;
+  border-radius:999px;
+  background:var(--card);
+  border:1px solid var(--border);
+  margin-bottom:24px;
+  font-size:.84rem;color:var(--muted);
+}
+
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(2.6rem,7vw,5.5rem);
+  line-height:1.05;
+  margin-bottom:20px;font-weight:700;
+}
+.gradient{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{
+  font-size:1.05rem;color:var(--muted);
+  max-width:600px;margin:0 auto;line-height:1.7;
+}
+.hero-buttons{
+  display:flex;gap:14px;justify-content:center;
+  margin-top:32px;flex-wrap:wrap;
+}
+.btn-hero{
+  border:none;cursor:pointer;
+  padding:14px 28px;border-radius:16px;
+  font-size:.9rem;font-weight:700;
+  transition:.25s;
+}
+.btn-hero:hover{transform:translateY(-3px)}
+.btn-hero.primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;
+  box-shadow:0 8px 28px rgba(255,79,216,.35);
+}
+.btn-hero.secondary{
+  background:var(--card);
+  color:var(--text);
+  border:1px solid var(--border);
+}
+
+/* â”€â”€ INFO STRIP â”€â”€ */
+.info-strip{
+  max-width:1400px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;padding:0 20px 28px;
+}
+.info-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:16px 18px;
+  box-shadow:var(--shadow);
+}
+.info-kicker{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.info-text{margin-top:7px;font-size:.92rem;line-height:1.5;font-weight:500}
+
+/* â”€â”€ FEATURED â”€â”€ */
+.featured-section{
+  max-width:1400px;margin:0 auto;
+  padding:0 20px 36px;
+}
+.section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
+  margin-bottom:18px;
+}
+.section-title{font-family:var(--serif);font-size:1.6rem;font-weight:700}
+.section-sub{font-size:.8rem;color:var(--muted)}
+
+.featured-row{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+.featured-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:22px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:.3s;
+}
+.featured-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.featured-image{
+  aspect-ratio:1/1;
+  background:var(--card2);
+  overflow:hidden;
+}
+.featured-image img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.featured-card:hover .featured-image img{transform:scale(1.06)}
+.featured-body{padding:14px}
+.featured-tag{font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.featured-name{margin-top:6px;font-size:.97rem;font-weight:700;line-height:1.28}
+.featured-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
+.featured-price{font-size:.97rem;font-weight:800}
+
+/* â”€â”€ CATALOG â”€â”€ */
+.catalog-section{
+  max-width:1400px;margin:0 auto;
+  padding:0 20px 80px;
+}
+.catalog-tools{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  padding-bottom:16px;border-bottom:1px solid var(--border);margin-bottom:20px;
+}
+.catalog-meta{display:flex;flex-direction:column;gap:4px}
+.catalog-title{font-family:var(--serif);font-size:1.4rem;font-weight:700}
+.catalog-count{font-size:.8rem;color:var(--muted)}
+.sort-wrap{display:flex;align-items:center;gap:10px}
+.sort-label{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sort-select{
+  appearance:none;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--text);
+  border-radius:999px;
+  padding:10px 16px;
+  min-width:200px;
+  font-size:.83rem;font-weight:600;
+  cursor:pointer;
+}
+
+/* â”€â”€ PRODUCT GRID â”€â”€ */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+
+.empty-state{
+  display:none;
+  grid-column:1/-1;
+  text-align:center;
+  padding:80px 20px;
+  color:var(--muted);
+}
+.empty-state.on{display:block}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:24px;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:.3s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+
+.card-image{
+  position:relative;
+  aspect-ratio:1/1;
+  overflow:hidden;
+  background:var(--card2);
+}
+.card-image img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .4s ease;
+}
+.card:hover .card-image img{transform:scale(1.07)}
+
+/* tags */
+.tag{
+  position:absolute;top:10px;left:10px;
+  padding:4px 9px;border-radius:999px;
+  font-size:.6rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  background:#111;color:#fff;
+}
+.tag.gold{background:var(--gold);color:#111}
+.tag.sale{background:#b32828;color:#fff}
+.tag.rosa{background:#f7a8c4;color:#4d1730}
+.tag.celeste{background:#9edfff;color:#0d3d57}
+.tag.Gold{background:var(--gold);color:#111}
+.tag.Sale{background:#b32828;color:#fff}
+
+.stock-pip{
+  position:absolute;right:10px;bottom:10px;
+  width:11px;height:11px;border-radius:50%;border:2px solid rgba(255,255,255,.4);
+}
+.pip-ok{background:var(--green)}
+.pip-low{background:var(--orange)}
+.pip-out{background:var(--gray)}
+
+.card-body{
+  display:flex;flex-direction:column;gap:5px;
+  padding:14px;flex:1;
+}
+.card-brand{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.card-name{font-size:.88rem;font-weight:700;line-height:1.28;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-price-row{display:flex;align-items:baseline;gap:8px;margin-top:3px}
+.card-price{font-size:.97rem;font-weight:800}
+.card-price-old{font-size:.76rem;text-decoration:line-through;color:var(--muted)}
+.card-stock{font-size:.7rem;font-weight:700}
+.s-ok{color:var(--green)}
+.s-low{color:var(--orange)}
+.s-out{color:var(--gray)}
+
+.card-actions{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.btn-wa-sm,.btn-add-cart,.btn-disabled{
+  min-height:40px;border-radius:12px;border:none;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  transition:.2s;
+}
+.btn-wa-sm{
+  background:linear-gradient(135deg,#25d366,#128c5e);
+  color:#fff;gap:6px;text-decoration:none;
+}
+.btn-wa-sm:hover{filter:brightness(1.1)}
+.btn-add-cart{
+  background:var(--card2);
+  border:1px solid var(--border);
+  color:var(--text);padding:0 10px;cursor:pointer;
+}
+.btn-add-cart:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-disabled{background:var(--card2);color:var(--muted);cursor:default}
+
+/* â”€â”€ CART OVERLAY â”€â”€ */
+.cart-overlay,.sheet-overlay,.lightbox{display:none;position:fixed;inset:0;z-index:100}
+.cart-overlay.on,.sheet-overlay.on,.lightbox.on{display:block}
+.backdrop,.sheet-bg{position:absolute;inset:0;background:rgba(0,0,0,.6)}
+
+.cart-drawer,.sheet{
+  position:absolute;left:0;right:0;bottom:0;
+  background:var(--card);
+  border-radius:24px 24px 0 0;
+  max-height:92dvh;overflow:auto;
+}
+.cart-head,.sheet-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 20px 14px;border-bottom:1px solid var(--border);
+}
+.cart-title,.sheet-title{font-family:var(--serif);font-size:1.3rem;font-weight:700}
+.close-btn{
+  width:38px;height:38px;border:none;border-radius:999px;
+  background:var(--card2);color:var(--text);cursor:pointer;
+}
+
+.cart-list{padding:16px 20px;display:flex;flex-direction:column;gap:12px}
+.cart-item{
+  display:flex;align-items:center;gap:12px;
+  padding:10px;border:1px solid var(--border);border-radius:16px;
+}
+.cart-item-img{width:64px;height:64px;object-fit:cover;border-radius:12px;background:var(--card2)}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-name{font-size:.86rem;font-weight:700;line-height:1.25}
+.cart-item-price{margin-top:4px;font-size:.78rem;color:var(--muted)}
+.cart-qty{display:flex;align-items:center;gap:6px}
+.qty-btn{width:30px;height:30px;border-radius:999px;border:1px solid var(--border);background:var(--card2);color:var(--text);cursor:pointer}
+.qty-num{min-width:18px;text-align:center;font-weight:800}
+.cart-empty{text-align:center;padding:50px 14px;color:var(--muted)}
+
+.cart-foot{
+  position:sticky;bottom:0;background:var(--card);
+  padding:16px 20px calc(18px + var(--safe-b));
+  border-top:1px solid var(--border);
+}
+.cart-total{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
+.cart-total span:last-child{font-family:var(--serif);font-size:1.4rem;font-weight:700}
+.cart-note{
+  margin-bottom:14px;
+  background:var(--card2);border:1px solid var(--border);
+  border-radius:14px;padding:11px 14px;
+  font-size:.82rem;line-height:1.55;color:var(--muted);
+}
+.btn-wa-checkout{
+  width:100%;min-height:48px;border:none;border-radius:14px;
+  background:linear-gradient(135deg,#25d366,#128c5e);
+  color:#fff;font-size:.86rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  cursor:pointer;transition:.2s;
+}
+.btn-wa-checkout:hover{filter:brightness(1.1)}
+.btn-clear{
+  width:100%;margin-top:10px;border:none;background:none;
+  color:var(--muted);text-decoration:underline;cursor:pointer;font-size:.82rem;
+}
+
+/* â”€â”€ SHEET â”€â”€ */
+.sheet{padding-bottom:calc(18px + var(--safe-b))}
+.sheet-image{background:var(--card2);padding:10px 10px 0}
+.sheet-image button{width:100%;border:none;background:none;padding:0;cursor:pointer}
+.sheet-image img{width:100%;height:min(46vh,380px);object-fit:contain;border-radius:20px}
+.sheet-body{padding:16px 20px 0}
+.sheet-handle{width:40px;height:4px;border-radius:999px;background:var(--border);margin:0 auto 16px}
+.sheet-brand{font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.sheet-name{margin-top:5px;font-family:var(--serif);font-size:1.55rem;line-height:1.18}
+.sheet-desc{margin-top:10px;font-size:.9rem;line-height:1.65;color:var(--muted)}
+.sheet-price-row{display:flex;align-items:baseline;gap:10px;margin-top:14px}
+.sheet-price{font-family:var(--serif);font-size:1.8rem;font-weight:700}
+.sheet-old{font-size:.92rem;color:var(--muted);text-decoration:line-through}
+.sheet-stock{margin-top:8px;font-size:.76rem;font-weight:700}
+.sheet-note{
+  margin-top:12px;
+  background:var(--card2);border:1px solid var(--border);
+  border-radius:14px;padding:11px 14px;
+  font-size:.83rem;line-height:1.55;color:var(--muted);
+}
+.sheet-actions{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.sheet-cart-btn,.sheet-wa-btn,.sheet-close-btn{
+  min-height:46px;border-radius:14px;
+  text-decoration:none;display:flex;align-items:center;justify-content:center;
+  border:none;font-size:.84rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  cursor:pointer;transition:.2s;
+}
+.sheet-cart-btn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.sheet-cart-btn:hover{filter:brightness(1.1)}
+.sheet-cart-btn.agotado{background:var(--card2);color:var(--muted);cursor:default;filter:none}
+.sheet-wa-btn{background:var(--card2);color:var(--text);border:1px solid var(--border)}
+.sheet-wa-btn:hover{border-color:var(--accent);color:var(--accent)}
+.sheet-close-btn{background:var(--card2);color:var(--muted)}
+
+/* â”€â”€ LIGHTBOX â”€â”€ */
+.lightbox{background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center}
+.lightbox.on{display:flex}
+.lb-box{width:min(100%,920px);padding:18px}
+.lb-top{display:flex;justify-content:flex-end;margin-bottom:8px}
+.lb-close{width:40px;height:40px;border-radius:999px;border:none;background:rgba(255,255,255,.12);color:#fff;cursor:pointer}
+.lb-img-wrap{display:flex;align-items:center;justify-content:center;min-height:70dvh}
+.lb-img-wrap img{max-width:100%;max-height:70dvh;object-fit:contain;cursor:zoom-in;transition:transform .25s}
+.lb-img-wrap img.zoomed{transform:scale(1.9);cursor:zoom-out}
+.lb-caption{text-align:center;color:rgba(255,255,255,.7);font-family:var(--serif);font-size:1rem;margin-top:12px}
+
+/* â”€â”€ TOAST â”€â”€ */
+.toast{
+  position:fixed;left:50%;bottom:calc(70px + var(--safe-b));
+  transform:translateX(-50%) translateY(10px);
+  background:var(--accent);color:#fff;
+  padding:10px 20px;border-radius:999px;
+  opacity:0;pointer-events:none;transition:.25s;z-index:120;
+  font-size:.85rem;font-weight:700;
+  box-shadow:0 8px 24px rgba(255,79,216,.45);
+}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* â”€â”€ FOOTER â”€â”€ */
+.site-footer{
+  background:var(--card);
+  border-top:1px solid var(--border);
+  text-align:center;
+  padding:28px 20px calc(28px + var(--safe-b));
+  font-size:.76rem;line-height:2;color:var(--muted);
+}
+.site-footer strong{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+
+/* â”€â”€ FADE ANIMATION â”€â”€ */
+.fade{opacity:0;transform:translateY(28px);transition:1s}
+.fade.show{opacity:1;transform:none}
+
+/* â”€â”€ RESPONSIVE â”€â”€ */
+@media(min-width:700px){
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .card-actions{flex-direction:row}
+  .btn-wa-sm{flex:1}
+  .btn-add-cart{min-width:136px}
+  .cart-drawer{top:0;bottom:0;left:auto;right:0;width:420px;border-radius:0}
+}
+@media(min-width:980px){
+  .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+
+
+/* MOBILE AUTO HIDE HEADER */
+@media(max-width:699px){
+  .site-header{
+    transition:transform .35s ease, opacity .35s ease;
+  }
+
+  .site-header.mobile-hidden{
+    transform:translateY(-100%);
+    opacity:.0;
+  }
+
+  body{
+    padding-top:0;
+  }
+
+  .hero{
+    margin-top:0;
+  }
+}
+
+/* MOBILE HERO SHRINK ON SCROLL */
+@media(max-width:699px){
+  .hero{
+    min-height:58vh;
+    padding:50px 20px;
+    transition:min-height .35s ease,padding .35s ease,opacity .35s ease;
+  }
+
+  .hero.hero-scrolled{
+    min-height:18vh;
+    padding:14px 20px;
+  }
+
+  .hero.hero-scrolled .hero-content{
+    transform:scale(.72);
+    opacity:.92;
+    transition:transform .35s ease,opacity .35s ease;
+  }
+
+  .hero-content{
+    transition:transform .35s ease,opacity .35s ease;
+  }
+}
+
+@media(max-width:699px){
+  .info-strip{grid-template-columns:1fr}
+  .featured-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .catalog-tools{align-items:stretch}
+  .sort-wrap{width:100%}
+  .sort-select{width:100%;min-width:0}
+  .hero h1{font-size:2.8rem}
+}
+</style>
+</head>
+
+<body>
+
+<script>
+var CONFIG = {
+  whatsapp: "59179112661",
+  facebook: "https://www.facebook.com/luzmichel.garnicaacha.5",
+  moneda: "Bs"
+};
+
+var PRODUCTOS_FALLBACK = [
+  {
+    nombre: "Borradores",
+    categoria: "escolares",
+    descripcion: "borradores de diferentes colores y formas para tus necesidades escolares.",
+    precio: 10,
+    precioAntes: null,
+    stock: 22,
+    tag: "",
+    tagTipo: "",
+    img: ""
+  },
+  {
+    nombre: "Hidrante de labios",
+    categoria: "cuidado",
+    descripcion: "Hidratantes de labios edicion labubu para mantener tus labios suaves y humectados durante todo el dia.",
+    precio: 8,
+    precioAntes: null,
+    stock: 1,
+    tag: "",
+    tagTipo: "",
+    img: "https://img-73s.pages.dev/IMG-20260423-WA0048 (1).png"
+  },
+  {
+    nombre: "Labiales",
+    categoria: "maquillaje",
+    descripcion: "Labiales de diferentes colores para resaltar tu sonrisa.",
+    precio: 16,
+    precioAntes: null,
+    stock: 16,
+    tag: "KaritÃ©",
+    tagTipo: "rosa",
+    img: ""
+  },
+  {
+    nombre: "Kit de borlas y esponjas",
+    categoria: "maquillaje",
+    descripcion: "Kit de borlas y esponjas para aplicar maquillaje de manera uniforme.",
+    precio: 32,
+    precioAntes: 35,
+    stock: 12,
+    tag: "",
+    tagTipo: "",
+    img: ""
+  },
+  {
+    nombre: "Perfume 35ml",
+    categoria: "perfumes",
+    descripcion: "Perfumes estilo palito de diferentes fragancias para cada ocasiÃ³n.",
+    precio: 20,
+    precioAntes: null,
+    stock: 12,
+    tag: "V.V.love",
+    tagTipo: "sale",
+    img: ""
+  },
+  {
+    nombre: "Perfume 30ml",
+    categoria: "perfumes",
+    descripcion: "Perfumes unisex de diferentes fragancias para cada ocasiÃ³n.",
+    precio: 20,
+    precioAntes: null,
+    stock: 10,
+    tag: "V.V.love",
+    tagTipo: "sale",
+    img: ""
+  },
+  {
+    nombre: "Set de 4 Cepillos",
+    categoria: "cuidado",
+    descripcion: "Set de 4 cepillos para el cuidado de tu cabello en rosa y celeste.",
+    precio: 35,
+    precioAntes: null,
+    stock: 6,
+    tag: "",
+    tagTipo: "",
+    img: "https://img-73s.pages.dev/IMG-20260423-WA0046.png"
+  },
+  {
+    nombre: "Pack de 4 Perfumes",
+    categoria: "perfumes",
+    descripcion: "Perfume femenino que incluye 4 perfumes con fragancias variadas y duraderas.",
+    precio: 50,
+    precioAntes: null,
+    stock: 7,
+    tag: "V.V.love",
+    tagTipo: "sale",
+    img: ""
+  },
+  {
+    nombre: "Block de notas",
+    categoria: "escolares",
+    descripcion: "Block de notas con separador en forma de osito para organizar tus apuntes.",
+    precio: 10,
+    precioAntes: null,
+    stock: 6,
+    tag: "",
+    tagTipo: "",
+    img: "https://img-73s.pages.dev/IMG-20260423-WA0051.png"
+  },
+  {
+    nombre: "Delineador de ojos",
+    categoria: "maquillaje",
+    descripcion: "Delineador de ojos de diferentes colores para resaltar tu mirada.",
+    precio: 10,
+    precioAntes: null,
+    stock: 6,
+    tag: "KaritÃ©",
+    tagTipo: "rosa",
+    img: ""
+  },
+  {
+    nombre: "Kit desmaquillante",
+    categoria: "maquillaje",
+    descripcion: "Kit de desmaquillante para eliminar el maquillaje de manera efectiva.",
+    precio: 30,
+    precioAntes: 35,
+    stock: 5,
+    tag: "",
+    tagTipo: "",
+    img: ""
+  },
+  {
+    nombre: "Paleta Verde NeÃ³n",
+    categoria: "maquillaje",
+    descripcion: "Paleta de colores carnavaleros para crear looks divertidos y modernos.",
+    precio: 120,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0025.jpg"
+  },
+  {
+    nombre: "Paleta Rojo NeÃ³n",
+    categoria: "maquillaje",
+    descripcion: "Paleta de colores carnavaleros para crear looks divertidos y modernos.",
+    precio: 120,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0024.jpg"
+  },
+  {
+    nombre: "Paleta Naranja NeÃ³n",
+    categoria: "maquillaje",
+    descripcion: "Paleta de colores carnavaleros para crear looks divertidos y modernos.",
+    precio: 120,
+    precioAntes: null,
+    stock: 2,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0026.jpg"
+  },
+  {
+    nombre: "Gloss Chicas Super Poderosas",
+    categoria: "maquillaje",
+    descripcion: "Estos lip oils de las Chicas Super Poderosas son el complemento perfecto para tu maquillaje, con un brillo intenso. 2 unidades celestes, 1 rosa y una verde.",
+    precio: 100,
+    precioAntes: null,
+    stock: 4,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: ""
+  },
+  {
+    nombre: "Sombra Compacto Bob Esponja",
+    categoria: "maquillaje",
+    descripcion: "Sombra compacta de la coleccion bob esponja en 3 diferentes tonos.",
+    precio: 120,
+    precioAntes: null,
+    stock: 0,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0022.jpg"
+  },
+  {
+    nombre: "Aceite Limpiador Centella Neutro",
+    categoria: "maquillaje",
+    descripcion: "Aceite limpiador con ingredientes naturales para una limpieza profunda.",
+    precio: 200,
+    precioAntes: null,
+    stock: 3,
+    tag: "Skin 1004",
+    tagTipo: "gold",
+    img: "https://img-73s.pages.dev/11245543.webp"
+  },
+  {
+    nombre: "Perfumes Medianos",
+    categoria: "perfumes",
+    descripcion: "Perfume unisex de diferentes fragancias para cada ocasiÃ³n.",
+    precio: 50,
+    precioAntes: null,
+    stock: 3,
+    tag: "V.V.love",
+    tagTipo: "sale",
+    img: ""
+  },
+  {
+    nombre: "Paleta Peluche",
+    categoria: "maquillaje",
+    descripcion: "Paleta de colores inspirada en personajes de peluche para crear looks adorables.",
+    precio: 140,
+    precioAntes: null,
+    stock: 1,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0002.jpg"
+  },
+  {
+    nombre: "Paleta Peluche 2",
+    categoria: "maquillaje",
+    descripcion: "Paleta de colores inspirada en personajes de peluche para crear looks adorables.",
+    precio: 140,
+    precioAntes: null,
+    stock: 1,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0001.jpg"
+  },
+  {
+    nombre: "Lip Combo",
+    categoria: "maquillaje",
+    descripcion: "Combo de labiales con diferentes tonos para crear looks variados.",
+    precio: 180,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0005.jpg"
+  },
+  {
+    nombre: "Lip Combo 2",
+    categoria: "maquillaje",
+    descripcion: "Combo de labiales con diferentes tonos para crear looks variados.",
+    precio: 180,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/11.jpeg"
+  },
+  {
+    nombre: "Mini Paleta",
+    categoria: "maquillaje",
+    descripcion: "Paleta en tonos rosa para un maquillaje rÃ¡pido y sencillo.",
+    precio: 40,
+    precioAntes: null,
+    stock: 1,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0012.jpg"
+  },
+  {
+    nombre: "Mini Paleta 2",
+    categoria: "maquillaje",
+    descripcion: "Paleta en tonos cafes para un maquillaje rÃ¡pido y sencillo.",
+    precio: 40,
+    precioAntes: null,
+    stock: 1,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: "https://img-73s.pages.dev/KC246212_10.webp"
+  },
+  {
+    nombre: "Contorno Nice",
+    categoria: "maquillaje",
+    descripcion: "Contorno de ojos en tonos neutros para un maquillaje suave y natural.",
+    precio: 8,
+    precioAntes: null,
+    stock: 2,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: "https://img-73s.pages.dev/KC245215-6-COLORS-FACE-PALETTE.webp"
+  },
+  {
+    nombre: "Rubor En Crema",
+    categoria: "maquillaje",
+    descripcion: "Rubor en crema para un maquillaje suave y natural.",
+    precio: 40,
+    precioAntes: null,
+    stock: 2,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0028.png"
+  },
+  {
+    nombre: "Crema Hidratante De Manos",
+    categoria: "cuidado",
+    descripcion: "Crema hidratante de manos con ingredientes naturales para mantener tus manos suaves y humectadas.",
+    precio: 15,
+    precioAntes: null,
+    stock: 1,
+    tag: "Bioaqua",
+    tagTipo: "celeste",
+    img: "https://img-73s.pages.dev/515b75a69ec1aedb14bda99d0459a8cd.jpg_720x720q80.jpg"
+  },
+  {
+    nombre: "Crema Para Manos",
+    categoria: "cuidado",
+    descripcion: "Crema para manos con ingredientes naturales para mantener tus manos suaves y humectadas.",
+    precio: 15,
+    precioAntes: null,
+    stock: 1,
+    tag: "",
+    tagTipo: "",
+    img: ""
+  },
+  {
+    nombre: "Neceser Rosa",
+    categoria: "neceser",
+    descripcion: "Neceser de color rosa para guardar tus productos de belleza de manera organizada y elegante.",
+    precio: 70,
+    precioAntes: null,
+    stock: 2,
+    tag: "",
+    tagTipo: "",
+    img: ""
+  },
+  {
+    nombre: "Neceser CafÃ© Ecocuero",
+    categoria: "neceser",
+    descripcion: "Neceser de color cafÃ© hecha de ecocuero para guardar tus productos de belleza de manera organizada y elegante.",
+    precio: 70,
+    precioAntes: null,
+    stock: 2,
+    tag: "",
+    tagTipo: "",
+    img: ""
+  },
+  {
+    nombre: "Protector Solar Blanco Centella",
+    categoria: "cuidado",
+    descripcion: "",
+    precio: 130,
+    precioAntes: null,
+    stock: 2,
+    tag: "Skin 1004",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Protector Solar Rosa Centella",
+    categoria: "cuidado",
+    descripcion: "",
+    precio: 130,
+    precioAntes: null,
+    stock: 2,
+    tag: "Skin 1004",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "JabÃ³n Centella Neutro",
+    categoria: "cuidado",
+    descripcion: "",
+    precio: 120,
+    precioAntes: null,
+    stock: 2,
+    tag: "Skin 1004",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Contorno De Ojos Centella",
+    categoria: "cuidado",
+    descripcion: "Contorno de ojos con ingredientes naturales para un cuidado suave y efectivo de la piel alrededor de los ojos.",
+    precio: 120,
+    precioAntes: null,
+    stock: 2,
+    tag: "Skin 1004",
+    tagTipo: "gold",
+    img: "https://img-73s.pages.dev/2.webp"
+  },
+  {
+    nombre: "Hidratante De Labios",
+    categoria: "cuidado",
+    descripcion: "Hidratante de labios con ingredientes naturales para mantener tus labios suaves y humectados durante todo el dia.",
+    precio: 10,
+    precioAntes: null,
+    stock: 1,
+    tag: "Bioaqua",
+    tagTipo: "celeste",
+    img: "https://img-73s.pages.dev/IMG-20260423-WA0050.png"
+  },
+  {
+    nombre: "Paleta Barbie",
+    categoria: "maquillaje",
+    descripcion: "Paleta de colores inspirada en la icÃ³nica muÃ±eca Barbie para crear looks divertidos y femeninos.",
+    precio: 400,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/10.webp"
+  },
+  {
+    nombre: "Paleta LoterÃ­a",
+    categoria: "maquillaje",
+    descripcion: "Paleta de loterÃ­a para crear looks divertidos y femeninos.",
+    precio: 400,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/12.webp"
+  },
+  {
+    nombre: "Paleta Tease Me",
+    categoria: "maquillaje",
+    descripcion: "Paleta de colores inspirada para crear looks divertidos y femeninos.",
+    precio: 350,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/7.webp"
+  },
+  {
+    nombre: "Parches De Las Chicas Super Poderosas",
+    categoria: "cuidado",
+    descripcion: "Parches para el cuidado de la piel con ingredientes naturales.",
+    precio: 80,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: ""
+  },
+  {
+    nombre: "Set De Rubores",
+    categoria: "maquillaje",
+    descripcion: "Set de rubores para crear looks divertidos y femeninos.",
+    precio: 90,
+    precioAntes: null,
+    stock: 1,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Paleta Peluche Grande",
+    categoria: "maquillaje",
+    descripcion: "Paleta de colores inspirada en el peluche grande para crear looks divertidos y femeninos.",
+    precio: 200,
+    precioAntes: null,
+    stock: 1,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0003.jpg"
+  },
+  {
+    nombre: "Rubor Chicas Super Poderosas",
+    categoria: "maquillaje",
+    descripcion: "Rubor para crear looks divertidos y femeninos.",
+    precio: 90,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: ""
+  },
+  {
+    nombre: "Duo De Rubores",
+    categoria: "maquillaje",
+    descripcion: "Duo de rubores para crear looks divertidos y femeninos.",
+    precio: 350,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: ""
+  },
+  {
+    nombre: "Iluminador Gotta Glow Barbie",
+    categoria: "maquillaje",
+    descripcion: "Iluminador para crear looks divertidos y femeninos.",
+    precio: 160,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0008.jpg"
+  },
+  {
+    nombre: "Spray De Yeri Mua",
+    categoria: "cuidado",
+    descripcion: "Spray para el cuidado de la piel con ingredientes naturales.",
+    precio: 160,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/yerimua-unique-setting-spray-4800282.webp"
+  },
+  {
+    nombre: "Spray Barbie",
+    categoria: "cuidado",
+    descripcion: "Spray para el cuidado de la piel con ingredientes naturales.",
+    precio: 160,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0010.jpg"
+  },
+  {
+    nombre: "Rubor De Bob Esponja",
+    categoria: "maquillaje",
+    descripcion: "Rubor para crear looks divertidos y femeninos.",
+    precio: 90,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: ""
+  },
+  {
+    nombre: "Set De Navidad",
+    categoria: "maquillaje",
+    descripcion: "Set de productos con estilo navidadeÃ±o.",
+    precio: 60,
+    precioAntes: null,
+    stock: 1,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: "https://img-73s.pages.dev/KC1149_2.webp"
+  },
+  {
+    nombre: "Limpia Brochas",
+    categoria: "maquillaje",
+    descripcion: "Limpia brochas para mantenerlas en perfectas condiciones.",
+    precio: 10,
+    precioAntes: null,
+    stock: 1,
+    tag: "",
+    tagTipo: "",
+    img: ""
+  },
+  {
+    nombre: "Gloss Kevin&Coco",
+    categoria: "maquillaje",
+    descripcion: "Gloss para resaltar los labios.",
+    precio: 25,
+    precioAntes: null,
+    stock: 1,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Set Kevin&Coco",
+    categoria: "maquillaje",
+    descripcion: "Set de productos de la marca Kevin&Coco.",
+    precio: 180,
+    precioAntes: null,
+    stock: 1,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Paleta Carnival",
+    categoria: "maquillaje",
+    descripcion: "Paleta de colores con amplia variedad de tonos irresistibles.",
+    precio: 150,
+    precioAntes: null,
+    stock: 1,
+    tag: "BPerfect x Stacey Marie",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0019.jpg"
+  },
+  {
+    nombre: "Paleta Chicas Super Poderosas",
+    categoria: "maquillaje",
+    descripcion: "Paleta de colores inspirada en el universo de las Chicas Super Poderosas.",
+    precio: 400,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: "https://img-73s.pages.dev/powerpuff-girls-paleta-de-sombras-1.webp"
+  },
+  {
+    nombre: "Gloss Beauty Creations",
+    categoria: "maquillaje",
+    descripcion: "Gloss para resaltar los labios.",
+    precio: 80,
+    precioAntes: null,
+    stock: 1,
+    tag: "Beauty Creations",
+    tagTipo: "sale",
+    img: ""
+  },
+  {
+    nombre: "Labial Con Llavero",
+    categoria: "maquillaje",
+    descripcion: "Labial con llavero para un estilo Ãºnico.",
+    precio: 30,
+    precioAntes: null,
+    stock: 1,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Paleta Cookies",
+    categoria: "maquillaje",
+    descripcion: "Paleta de colores inspirada en el mundo de las galletas.",
+    precio: 90,
+    precioAntes: null,
+    stock: 1,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: "https://img-73s.pages.dev/IMG-20260424-WA0030.jpg"
+  },
+  {
+    nombre: "Jabon Facial",
+    categoria: "cuidado",
+    descripcion: "Jabon para el cuidado del rostro con ingredientes naturales.",
+    precio: 40,
+    precioAntes: 50,
+    stock: 1,
+    tag: "Bioaqua",
+    tagTipo: "celeste",
+    img: ""
+  },
+  {
+    nombre: "Iluminador Liquido",
+    categoria: "maquillaje",
+    descripcion: "Iluminador lÃ­quido para un acabado brillante.",
+    precio: 30,
+    precioAntes: null,
+    stock: 1,
+    tag: "Kevin&Coco",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Neceser Transparente",
+    categoria: "neceser",
+    descripcion: "Neceser transparente para almacenar tus productos de belleza.",
+    precio: 60,
+    precioAntes: null,
+    stock: 1,
+    tag: "",
+    tagTipo: "",
+    img: ""
+  },
+  {
+    nombre: "Neceser De Cuero",
+    categoria: "neceser",
+    descripcion: "Neceser de cuero para almacenar tus productos de belleza.",
+    precio: 80,
+    precioAntes: null,
+    stock: 1,
+    tag: "",
+    tagTipo: "",
+    img: ""
+  },
+  {
+    nombre: "Dr.Althea 147",
+    categoria: "cuidado",
+    descripcion: "Crema facial para el cuidado de la piel con ingredientes naturales.",
+    precio: 130,
+    precioAntes: null,
+    stock: 1,
+    tag: "Dr.Althea",
+    tagTipo: "gold",
+    img: "https://myskingt.com/cdn/shop/files/PreciosMYSKIN-2025-06-09T113025.122.png?v=1749490262&width=1946"
+  },
+  {
+    nombre: "Crema Mixsoon",
+    categoria: "cuidado",
+    descripcion: "Crema para el cuidado de la piel con ingredientes naturales.",
+    precio: 150,
+    precioAntes: null,
+    stock: 1,
+    tag: "Mixsoon",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Crema Tea Trica Centella",
+    categoria: "cuidado",
+    descripcion: "Crema para el cuidado de la piel con ingredientes naturales.",
+    precio: 120,
+    precioAntes: null,
+    stock: 1,
+    tag: "Skin 1004",
+    tagTipo: "gold",
+    img: "https://img-73s.pages.dev/21122.webp"
+  },
+  {
+    nombre: "Protector Solar CafÃ© Centella",
+    categoria: "cuidado",
+    descripcion: "Protector solar para el cuidado de la piel con ingredientes naturales.",
+    precio: 130,
+    precioAntes: null,
+    stock: 1,
+    tag: "Skin 1004",
+    tagTipo: "gold",
+    img: "https://img-73s.pages.dev/1.jpg"
+  },
+  {
+    nombre: "Crema Blanca Centella",
+    categoria: "cuidado",
+    descripcion: "Crema para el cuidado de la piel con ingredientes naturales.",
+    precio: 130,
+    precioAntes: null,
+    stock: 1,
+    tag: "Skin 1004",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Crema CafÃ© Centella",
+    categoria: "cuidado",
+    descripcion: "Crema para el cuidado de la piel con ingredientes naturales.",
+    precio: 130,
+    precioAntes: null,
+    stock: 1,
+    tag: "Skin 1004",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Jabon Facial Mixsoon",
+    categoria: "cuidado",
+    descripcion: "Jabon para el cuidado del rostro con ingredientes naturales.",
+    precio: 130,
+    precioAntes: 150,
+    stock: 1,
+    tag: "Mixsoon",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Protector Solar Mixsoon",
+    categoria: "cuidado",
+    descripcion: "Protector solar para el cuidado de la piel con ingredientes naturales.",
+    precio: 130,
+    precioAntes: null,
+    stock: 1,
+    tag: "Mixsoon",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Tonico Centella Celeste",
+    categoria: "cuidado",
+    descripcion: "Tonico para el cuidado de la piel con ingredientes naturales.",
+    precio: 150,
+    precioAntes: null,
+    stock: 1,
+    tag: "Skin 1004",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Ampolla Centella CafÃ©",
+    categoria: "cuidado",
+    descripcion: "Ampolla para el cuidado de la piel con ingredientes naturales.",
+    precio: 150,
+    precioAntes: null,
+    stock: 1,
+    tag: "Skin 1004",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Jabon Facial Centella Rosa",
+    categoria: "cuidado",
+    descripcion: "Jabon para el cuidado del rostro con ingredientes naturales.",
+    precio: 150,
+    precioAntes: null,
+    stock: 1,
+    tag: "Skin 1004",
+    tagTipo: "gold",
+    img: ""
+  },
+  {
+    nombre: "Set De Skincare Leopardo",
+    categoria: "cuidado",
+    descripcion: "Set de productos para el cuidado de la piel con ingredientes naturales.",
+    precio: 50,
+    precioAntes: null,
+    stock: 1,
+    tag: "",
+    tagTipo: "",
+    img: ""
+  }
+];
+var PRODUCTOS = PRODUCTOS_FALLBACK.slice();
+
+function normalizeProduct(p, i){
+  p = p || {};
+  return {
+    id: String(p.id || p.nombre || ('producto-' + i)),
+    nombre: String(p.nombre || 'Producto sin nombre'),
+    categoria: String(p.categoria || 'cuidado'),
+    descripcion: String(p.descripcion || ''),
+    precio: Number(p.precio || 0),
+    precioAntes: p.precioAntes === null || p.precioAntes === '' || typeof p.precioAntes === 'undefined' ? null : Number(p.precioAntes),
+    stock: Number(p.stock || 0),
+    tag: String(p.tag || ''),
+    tagTipo: String(p.tagTipo || ''),
+    img: String(p.img || '')
+  };
+}
+
+async function loadProductsFromKV(){
+  try{
+    var res = await fetch('/api/products', {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    var data = await res.json();
+    var list = Array.isArray(data) ? data : data.products;
+    if(!Array.isArray(list)) throw new Error('Respuesta invalida');
+    PRODUCTOS = list.map(normalizeProduct);
+    renderAll();
+  }catch(err){
+    console.warn('No se pudieron cargar productos desde KV. Usando respaldo local.', err);
+    PRODUCTOS = PRODUCTOS_FALLBACK.map(normalizeProduct);
+    renderAll();
+  }
+}
+</script>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="brand-wrap">
+      <span class="brand-name">La Boutique de Luz</span>
+      <span class="brand-sub">Perfumes Â· Belleza Â· Cuidado</span>
+    </div>
+    <div class="header-actions">
+      <a class="hbtn" id="fbBtn" href="#" target="_blank" rel="noopener" title="Facebook">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <button class="hbtn" id="themeBtn" title="Cambiar tema">ðŸŒ™</button>
+      <button class="cart-btn" type="button" onclick="openCart()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        <span>Carrito</span>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="search-bar">
+    <div class="search-inner">
+      <svg class="search-ic" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" id="qInput" placeholder="Buscar productos, marcas..." autocomplete="off" oninput="renderAll()">
+    </div>
+  </div>
+  <div class="cat-bar">
+    <div class="cat-bar-inner" id="navChips"></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content fade">
+    <div class="badge">âœ¨ Premium Beauty Experience Â· Cochabamba</div>
+    <h1>Belleza <span class="gradient">Premium</span><br>con Estilo</h1>
+    <p>Perfumes, skincare y maquillaje seleccionado. Pedidos por WhatsApp, entrega en el Correo de Cochabamba.</p>
+    <div class="hero-buttons">
+      <button class="btn-hero primary" onclick="window.scrollTo({top:document.querySelector('.catalog-section').offsetTop - 80,behavior:'smooth'})">Explorar productos</button>
+      <a class="btn-hero secondary" href="https://www.facebook.com/luzmichel.garnicaacha.5" target="_blank" rel="noopener">Seguir en Facebook</a>
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div class="info-strip">
+  <article class="info-card fade">
+    <div class="info-kicker">Pago</div>
+    <div class="info-text">Aceptamos efectivo o QR.</div>
+  </article>
+  <article class="info-card fade">
+    <div class="info-kicker">Entregas</div>
+    <div class="info-text">Correo de Cochabamba Â· EnvÃ­os nacionales disponibles.</div>
+  </article>
+</div>
+
+<!-- FEATURED -->
+<section class="featured-section" id="featuredSection">
+  <div class="section-head fade">
+    <div>
+      <div class="section-title">Destacados</div>
+      <div class="section-sub">Productos seleccionados</div>
+    </div>
+  </div>
+  <div class="featured-row" id="featuredGrid"></div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog-section">
+  <div class="catalog-tools">
+    <div class="catalog-meta">
+      <div class="catalog-title" id="secTitle">Todos los productos</div>
+      <div class="catalog-count" id="secCount"></div>
+    </div>
+    <div class="sort-wrap">
+      <label class="sort-label" for="sortSelect">Ordenar</label>
+      <select class="sort-select" id="sortSelect" onchange="renderAll()">
+        <option value="precio-asc">Precio: menor a mayor</option>
+        <option value="precio-desc">Precio: mayor a menor</option>
+        <option value="nuevo">MÃ¡s recientes</option>
+      </select>
+    </div>
+  </div>
+  <div class="grid" id="grid">
+    <div class="empty-state" id="emptyState">
+      <p>No encontramos ese producto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CART -->
+<div class="cart-overlay" id="cartOverlay">
+  <div class="backdrop" onclick="closeCart()"></div>
+  <div class="cart-drawer">
+    <div class="cart-head">
+      <div class="cart-title">Tu pedido</div>
+      <button class="close-btn" type="button" onclick="closeCart()">âœ•</button>
+    </div>
+    <div class="cart-list" id="cartList"></div>
+    <div class="cart-foot" id="cartFoot" style="display:none;">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal"></span>
+      </div>
+      <div class="cart-note">Pago disponible solo en efectivo o QR. Las entregas se realizan en el Correo de Cochabamba.</div>
+      <button class="btn-wa-checkout" type="button" onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
+      <button class="btn-clear" type="button" onclick="vaciarCarrito()">Vaciar carrito</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT SHEET -->
+<div class="sheet-overlay" id="sheetOverlay">
+  <div class="sheet-bg" onclick="closeSheet()"></div>
+  <div class="sheet">
+    <div class="sheet-image">
+      <button type="button" onclick="openLightbox()">
+        <img id="sImg" src="" alt="">
+      </button>
+    </div>
+    <div class="sheet-body">
+      <div class="sheet-handle"></div>
+      <div class="sheet-brand" id="sCat"></div>
+      <div class="sheet-name" id="sName"></div>
+      <div class="sheet-desc" id="sDesc"></div>
+      <div class="sheet-price-row">
+        <span class="sheet-price" id="sPrice"></span>
+        <span class="sheet-old" id="sOld"></span>
+      </div>
+      <div class="sheet-stock" id="sStock"></div>
+      <div class="sheet-note">Pago en efectivo o QR Â· Entregas en el Correo de Cochabamba.</div>
+      <div class="sheet-actions">
+        <button class="sheet-cart-btn" id="sCartBtn" type="button" onclick="addFromSheet()">AÃ±adir al carrito</button>
+        <a class="sheet-wa-btn" id="sWA" href="#" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        <button class="sheet-close-btn" type="button" onclick="closeSheet()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lb-box">
+    <div class="lb-top">
+      <button class="lb-close" type="button" onclick="closeLightbox()">âœ•</button>
+    </div>
+    <div class="lb-img-wrap" id="lbArea">
+      <img id="lbImg" src="" alt="" onclick="toggleZoom(event)">
+    </div>
+    <div class="lb-caption" id="lbName"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer class="site-footer">
+  <strong>La Boutique de Luz</strong><br>
+  Cochabamba, Bolivia Â· Entregas en el Correo de Cochabamba<br>
+  <span id="yr"></span> Â· Hecho con amor ðŸŒ¸
+</footer>
+
+<script>
+// Theme
+var themeBtn = document.getElementById('themeBtn');
+if(localStorage.getItem('theme') === 'light'){
+  document.body.classList.add('light');
+  themeBtn.innerHTML = 'â˜€ï¸';
+}
+themeBtn.addEventListener('click', function(){
+  document.body.classList.toggle('light');
+  if(document.body.classList.contains('light')){
+    localStorage.setItem('theme','light');
+    themeBtn.innerHTML = 'â˜€ï¸';
+  } else {
+    localStorage.setItem('theme','dark');
+    themeBtn.innerHTML = 'ðŸŒ™';
+  }
+});
+
+// Setup
+document.getElementById('fbBtn').href = CONFIG.facebook;
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var filtro = 'todos';
+var carrito = [];
+var actual = null;
+var FALLBACK = 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&q=85';
+var CATS = [
+  {k:'todos',l:'Todos'},
+  {k:'cuidado',l:'Cuidado Â· Skincare'},
+  {k:'perfumes',l:'Perfumes'},
+  {k:'maquillaje',l:'Maquillaje'},
+  {k:'neceser',l:'Neceser'},
+  {k:'escolares',l:'Escolares'}
+];
+var TITLES = {
+  todos:'Todos los productos',
+  cuidado:'Cuidado Â· Skincare',
+  perfumes:'Perfumes',
+  maquillaje:'Maquillaje',
+  neceser:'Neceser y Accesorios',
+  escolares:'Material Escolar'
+};
+var WA_ICO = '<svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.121 1.533 5.853L0 24l6.335-1.511C8.05 23.447 9.986 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.651-.51-5.166-1.4l-.371-.22-3.764.898.932-3.653-.241-.387A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>';
+
+function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+function sortItems(items){
+  var orden = document.getElementById('sortSelect').value;
+  if(orden==='precio-asc') return items.slice().sort(function(a,b){return a.precio-b.precio;});
+  if(orden==='precio-desc') return items.slice().sort(function(a,b){return b.precio-a.precio;});
+  return items.slice().sort(function(a,b){return PRODUCTOS.indexOf(b)-PRODUCTOS.indexOf(a);});
+}
+function waUrl(p){
+  return 'https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent('Hola! Me interesa: '+p.nombre+' ('+p.precio+' '+CONFIG.moneda+'). Esta disponible?');
+}
+function stockHtml(p){
+  if(p.stock<=0) return '<span class="s-out">Agotado</span>';
+  if(p.stock===1) return '<span class="s-low">Ãšltima unidad</span>';
+  if(p.stock<=3) return '<span class="s-low">Ãšltimas '+p.stock+' unidades</span>';
+  return '<span class="s-ok">Disponible</span>';
+}
+function pipCls(p){
+  if(p.stock<=0) return 'pip-out';
+  if(p.stock<=3) return 'pip-low';
+  return 'pip-ok';
+}
+
+function buildChips(){
+  var host = document.getElementById('navChips');
+  host.innerHTML = CATS.map(function(c){
+    return '<button class="nchip'+(filtro===c.k?' on':'')+'" type="button" onclick="setFiltro(\''+c.k+'\')">'+c.l+'</button>';
+  }).join('');
+}
+function setFiltro(cat){
+  filtro = cat;
+  buildChips();
+  renderAll();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function filterProducts(){
+  var q = norm(document.getElementById('qInput').value.trim());
+  return PRODUCTOS.filter(function(p){
+    var catOk = filtro==='todos' || p.categoria===filtro;
+    if(!catOk) return false;
+    if(!q) return true;
+    var hay = norm([p.nombre,p.descripcion,p.categoria,p.tag].join(' '));
+    return q.split(/\s+/).every(function(part){return hay.indexOf(part)!==-1;});
+  });
+}
+
+function renderFeatured(){
+  var section = document.getElementById('featuredSection');
+  var host = document.getElementById('featuredGrid');
+  var q = document.getElementById('qInput').value.trim();
+  if(filtro!=='todos' || q){section.style.display='none';host.innerHTML='';return;}
+  section.style.display='block';
+  var picks = PRODUCTOS.filter(function(p,i){return p.stock>0 && (/nuevo|top/i.test(p.tag||'')||i<6);}).slice(0,6);
+  if(!picks.length) picks = PRODUCTOS.slice(0,6);
+  host.innerHTML = picks.map(function(p){
+    var safe = p.nombre.replace(/'/g,"\\'");
+    return '<article class="featured-card fade" onclick="openSheetByName(\''+safe+'\')"><div class="featured-image"><img src="'+p.img+'" alt="'+p.nombre+'" loading="lazy" onerror="this.src=\''+FALLBACK+'\'"></div><div class="featured-body"><div class="featured-tag">'+(p.tag||'Destacado')+'</div><div class="featured-name">'+p.nombre+'</div><div class="featured-meta"><span class="featured-price">'+p.precio+' '+CONFIG.moneda+'</span><span>'+stockHtml(p)+'</span></div></div></article>';
+  }).join('');
+  observeFade();
+}
+
+function renderGrid(){
+  var items = sortItems(filterProducts());
+  document.getElementById('secTitle').textContent = TITLES[filtro]||'Productos';
+  document.getElementById('secCount').textContent = items.length+' producto'+(items.length!==1?'s':'');
+  var grid = document.getElementById('grid');
+  var empty = document.getElementById('emptyState');
+  Array.from(grid.children).forEach(function(node){if(node.id!=='emptyState') node.remove();});
+  if(!items.length){empty.classList.add('on');return;}
+  empty.classList.remove('on');
+  items.forEach(function(p){
+    var ag = p.stock<=0;
+    var div = document.createElement('article');
+    div.className = 'card';
+    div.innerHTML =
+      '<div class="card-image">'+
+        '<img src="'+p.img+'" alt="'+p.nombre+'" loading="lazy">'+
+        (p.tag?'<span class="tag '+p.tagTipo+'">'+p.tag+'</span>':'')+
+        '<span class="stock-pip '+pipCls(p)+'"></span>'+
+      '</div>'+
+      '<div class="card-body">'+
+        '<div class="card-brand">'+p.categoria+'</div>'+
+        '<div class="card-name">'+p.nombre+'</div>'+
+        '<div class="card-price-row"><span class="card-price">'+p.precio+' '+CONFIG.moneda+'</span>'+(p.precioAntes?'<span class="card-price-old">'+p.precioAntes+' '+CONFIG.moneda+'</span>':'')+
+        '</div>'+
+        '<div class="card-stock">'+stockHtml(p)+'</div>'+
+        '<div class="card-actions">'+(ag?'<span class="btn-disabled">Sin stock</span>':'<a class="btn-wa-sm" href="'+waUrl(p)+'" target="_blank" rel="noopener">'+WA_ICO+' Consultar</a><button class="btn-add-cart" type="button">Agregar al carrito</button>')+'</div>'+
+      '</div>';
+    div.querySelector('img').onerror = function(){this.src=FALLBACK;};
+    var addBtn = div.querySelector('.btn-add-cart');
+    if(addBtn) addBtn.onclick = function(e){e.stopPropagation();addToCart(p);};
+    div.onclick = function(e){
+      if(e.target.closest('.btn-wa-sm')||e.target.closest('.btn-add-cart')) return;
+      openSheet(p);
+    };
+    grid.appendChild(div);
+  });
+}
+
+
+// Mobile immersive scroll behavior
+var lastScroll = 0;
+
+window.addEventListener('scroll', function(){
+  if(window.innerWidth > 699) return;
+
+  var hero = document.querySelector('.hero');
+  var header = document.querySelector('.site-header');
+  var current = window.scrollY;
+
+  // Hero shrink
+  if(current > 40){
+    hero.classList.add('hero-scrolled');
+  } else {
+    hero.classList.remove('hero-scrolled');
+  }
+
+  // Auto hide header when scrolling down
+  if(current > lastScroll && current > 120){
+    header.classList.add('mobile-hidden');
+  } else {
+    header.classList.remove('mobile-hidden');
+  }
+
+  lastScroll = current;
+});
+
+function renderAll(){renderFeatured();renderGrid();}
+
+function openSheetByName(nombre){
+  var p = PRODUCTOS.find(function(item){return item.nombre===nombre;});
+  if(p) openSheet(p);
+}
+function openSheet(p){
+  actual = p;
+  var ag = p.stock<=0;
+  var img = document.getElementById('sImg');
+  img.src = p.img||FALLBACK;
+  img.alt = p.nombre;
+  img.onerror = function(){this.src=FALLBACK;};
+  document.getElementById('sCat').textContent = p.categoria;
+  document.getElementById('sName').textContent = p.nombre;
+  document.getElementById('sDesc').textContent = p.descripcion;
+  document.getElementById('sPrice').textContent = p.precio+' '+CONFIG.moneda;
+  document.getElementById('sOld').textContent = p.precioAntes?p.precioAntes+' '+CONFIG.moneda:'';
+  document.getElementById('sStock').innerHTML = stockHtml(p);
+  document.getElementById('sWA').href = waUrl(p);
+  var btn = document.getElementById('sCartBtn');
+  if(ag){btn.className='sheet-cart-btn agotado';btn.textContent='Producto agotado';}
+  else{btn.className='sheet-cart-btn';btn.textContent='AÃ±adir al carrito';}
+  document.getElementById('sheetOverlay').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+function closeSheet(){
+  document.getElementById('sheetOverlay').classList.remove('on');
+  document.body.style.overflow='';
+}
+function openLightbox(){
+  if(!actual) return;
+  var img = document.getElementById('lbImg');
+  img.src = actual.img||FALLBACK;
+  img.alt = actual.nombre;
+  img.onerror = function(){this.src=FALLBACK;};
+  img.classList.remove('zoomed');
+  document.getElementById('lbName').textContent = actual.nombre;
+  document.getElementById('lightbox').classList.add('on');
+}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('on');}
+function toggleZoom(e){e.stopPropagation();document.getElementById('lbImg').classList.toggle('zoomed');}
+document.getElementById('lightbox').addEventListener('click',function(e){
+  if(e.target.id==='lightbox'||e.target.id==='lbArea') closeLightbox();
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){closeLightbox();closeSheet();closeCart();}
+});
+
+function addToCart(p){
+  var i = carrito.findIndex(function(x){return x.p.nombre===p.nombre;});
+  if(i>-1) carrito[i].q+=1;
+  else carrito.push({p:p,q:1});
+  updateBadge();
+  renderCart();
+  showToast('Producto agregado âœ“');
+}
+function addFromSheet(){
+  if(!actual||actual.stock<=0) return;
+  addToCart(actual);
+  closeSheet();
+}
+function changeQty(nombre,delta){
+  var i = carrito.findIndex(function(x){return x.p.nombre===nombre;});
+  if(i===-1) return;
+  carrito[i].q+=delta;
+  if(carrito[i].q<=0) carrito.splice(i,1);
+  updateBadge();renderCart();
+}
+function vaciarCarrito(){carrito=[];updateBadge();renderCart();}
+function total(){return carrito.reduce(function(sum,item){return sum+item.p.precio*item.q;},0);}
+function updateBadge(){
+  var n = carrito.reduce(function(sum,item){return sum+item.q;},0);
+  var badge = document.getElementById('cartBadge');
+  badge.textContent=n;badge.classList.toggle('visible',n>0);
+}
+function renderCart(){
+  var list = document.getElementById('cartList');
+  var foot = document.getElementById('cartFoot');
+  if(!carrito.length){list.innerHTML='<div class="cart-empty"><p>Tu carrito estÃ¡ vacÃ­o.</p></div>';foot.style.display='none';return;}
+  list.innerHTML = carrito.map(function(item){
+    var safe = item.p.nombre.replace(/'/g,"\\'");
+    return '<div class="cart-item"><img class="cart-item-img" src="'+(item.p.img||FALLBACK)+'" alt="'+item.p.nombre+'" onerror="this.src=\''+FALLBACK+'\'"><div class="cart-item-info"><div class="cart-item-name">'+item.p.nombre+'</div><div class="cart-item-price">'+(item.p.precio*item.q)+' '+CONFIG.moneda+(item.q>1?' ('+item.q+' x '+item.p.precio+')':'')+' </div></div><div class="cart-qty"><button class="qty-btn" type="button" onclick="changeQty(\''+safe+'\',-1)">-</button><span class="qty-num">'+item.q+'</span><button class="qty-btn" type="button" onclick="changeQty(\''+safe+'\',1)">+</button></div></div>';
+  }).join('');
+  document.getElementById('cartTotal').textContent = total()+' '+CONFIG.moneda;
+  foot.style.display='block';
+}
+function openCart(){renderCart();document.getElementById('cartOverlay').classList.add('on');document.body.style.overflow='hidden';}
+function closeCart(){
+  document.getElementById('cartOverlay').classList.remove('on');
+  if(!document.getElementById('sheetOverlay').classList.contains('on')) document.body.style.overflow='';
+}
+function enviarPedido(){
+  if(!carrito.length) return;
+  var lines=['Hola! Quiero hacer este pedido:',''];
+  carrito.forEach(function(item){
+    lines.push('- '+item.p.nombre+' x '+item.q+' - '+(item.p.precio*item.q)+' '+CONFIG.moneda);
+  });
+  lines.push('','Total: '+total()+' '+CONFIG.moneda,'','Pago: efectivo o QR.','Entrega: Correo de Cochabamba.','','Esta disponible? Como coordinamos?');
+  window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent(lines.join('\n')),'_blank');
+}
+
+var toastTimer;
+function showToast(msg){
+  var toast = document.getElementById('toast');
+  toast.textContent=msg;toast.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(function(){toast.classList.remove('on');},2200);
+}
+
+// Fade observer
+var observer = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting) entry.target.classList.add('show');
+  });
+},{threshold:.1});
+function observeFade(){
+  document.querySelectorAll('.fade:not(.show)').forEach(function(el){observer.observe(el);});
+}
+
+buildChips();
+updateBadge();
+renderAll();
+loadProductsFromKV();
+observeFade();
+</script>
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "02d73552d4a34920b454c6ebe7edd44f"}'></script><!-- Cloudflare Pages Analytics -->
+</body>
+</html>
+
