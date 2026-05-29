@@ -893,8 +893,8 @@ function waUrl(p){
 }
 function stockHtml(p){
   if(p.stock<=0) return '<span class="s-out">Agotado</span>';
-  if(p.stock===1) return '<span class="s-low">Ášltima unidad</span>';
-  if(p.stock<=3) return '<span class="s-low">Ášltimas '+p.stock+' unidades</span>';
+  if(p.stock===1) return '<span class="s-low">última unidad</span>';
+  if(p.stock<=3) return '<span class="s-low">últimas '+p.stock+' unidades</span>';
   return '<span class="s-ok">Disponible</span>';
 }
 function pipCls(p){
