@@ -1,11 +1,11 @@
-﻿const PRODUCTS_KEY = 'products';
+const PRODUCTS_KEY = 'products';
 const SESSION_COOKIE = 'admin_session';
 const SESSION_TTL_SECONDS = 60 * 60 * 12;
 const DEFAULT_PRODUCTS = [
   {
     nombre: "Borradores",
     categoria: "escolares",
-    descripcion: "borradores de diferentes colores y formas para tus necesidades escolares.",
+    descripcion: "Borradores de diferentes colores y formas para tus necesidades escolares.",
     precio: 10,
     precioAntes: null,
     stock: 22,
@@ -14,9 +14,9 @@ const DEFAULT_PRODUCTS = [
     img: ""
   },
   {
-    nombre: "Hidrante de labios",
+    nombre: "Hidratante de labios",
     categoria: "cuidado",
-    descripcion: "Hidratantes de labios edicion labubu para mantener tus labios suaves y humectados durante todo el dia.",
+    descripcion: "Hidratante de labios edición Labubu para mantener tus labios suaves y humectados durante todo el día.",
     precio: 8,
     precioAntes: null,
     stock: 1,
@@ -31,7 +31,7 @@ const DEFAULT_PRODUCTS = [
     precio: 16,
     precioAntes: null,
     stock: 16,
-    tag: "KaritÃ©",
+    tag: "Karité",
     tagTipo: "rosa",
     img: ""
   },
@@ -49,7 +49,7 @@ const DEFAULT_PRODUCTS = [
   {
     nombre: "Perfume 35ml",
     categoria: "perfumes",
-    descripcion: "Perfumes estilo palito de diferentes fragancias para cada ocasiÃ³n.",
+    descripcion: "Perfumes estilo palito de diferentes fragancias para cada ocasión.",
     precio: 20,
     precioAntes: null,
     stock: 12,
@@ -60,7 +60,7 @@ const DEFAULT_PRODUCTS = [
   {
     nombre: "Perfume 30ml",
     categoria: "perfumes",
-    descripcion: "Perfumes unisex de diferentes fragancias para cada ocasiÃ³n.",
+    descripcion: "Perfumes unisex de diferentes fragancias para cada ocasión.",
     precio: 20,
     precioAntes: null,
     stock: 10,
@@ -108,7 +108,7 @@ const DEFAULT_PRODUCTS = [
     precio: 10,
     precioAntes: null,
     stock: 6,
-    tag: "KaritÃ©",
+    tag: "Karité",
     tagTipo: "rosa",
     img: ""
   },
@@ -124,7 +124,7 @@ const DEFAULT_PRODUCTS = [
     img: ""
   },
   {
-    nombre: "Paleta Verde NeÃ³n",
+    nombre: "Paleta Verde Neón",
     categoria: "maquillaje",
     descripcion: "Paleta de colores carnavaleros para crear looks divertidos y modernos.",
     precio: 120,
@@ -135,7 +135,7 @@ const DEFAULT_PRODUCTS = [
     img: "https://img-73s.pages.dev/IMG-20260424-WA0025.jpg"
   },
   {
-    nombre: "Paleta Rojo NeÃ³n",
+    nombre: "Paleta Rojo Neón",
     categoria: "maquillaje",
     descripcion: "Paleta de colores carnavaleros para crear looks divertidos y modernos.",
     precio: 120,
@@ -146,7 +146,7 @@ const DEFAULT_PRODUCTS = [
     img: "https://img-73s.pages.dev/IMG-20260424-WA0024.jpg"
   },
   {
-    nombre: "Paleta Naranja NeÃ³n",
+    nombre: "Paleta Naranja Neón",
     categoria: "maquillaje",
     descripcion: "Paleta de colores carnavaleros para crear looks divertidos y modernos.",
     precio: 120,
@@ -170,7 +170,7 @@ const DEFAULT_PRODUCTS = [
   {
     nombre: "Sombra Compacto Bob Esponja",
     categoria: "maquillaje",
-    descripcion: "Sombra compacta de la coleccion bob esponja en 3 diferentes tonos.",
+    descripcion: "Sombra compacta de la colección Bob Esponja en 3 diferentes tonos.",
     precio: 120,
     precioAntes: null,
     stock: 0,
@@ -192,7 +192,7 @@ const DEFAULT_PRODUCTS = [
   {
     nombre: "Perfumes Medianos",
     categoria: "perfumes",
-    descripcion: "Perfume unisex de diferentes fragancias para cada ocasiÃ³n.",
+    descripcion: "Perfume unisex de diferentes fragancias para cada ocasión.",
     precio: 50,
     precioAntes: null,
     stock: 3,
@@ -247,7 +247,7 @@ const DEFAULT_PRODUCTS = [
   {
     nombre: "Mini Paleta",
     categoria: "maquillaje",
-    descripcion: "Paleta en tonos rosa para un maquillaje rÃ¡pido y sencillo.",
+    descripcion: "Paleta en tonos rosa para un maquillaje rápido y sencillo.",
     precio: 40,
     precioAntes: null,
     stock: 1,
@@ -258,7 +258,7 @@ const DEFAULT_PRODUCTS = [
   {
     nombre: "Mini Paleta 2",
     categoria: "maquillaje",
-    descripcion: "Paleta en tonos cafes para un maquillaje rÃ¡pido y sencillo.",
+    descripcion: "Paleta en tonos cafés para un maquillaje rápido y sencillo.",
     precio: 40,
     precioAntes: null,
     stock: 1,
@@ -322,9 +322,9 @@ const DEFAULT_PRODUCTS = [
     img: ""
   },
   {
-    nombre: "Neceser CafÃ© Ecocuero",
+    nombre: "Neceser Café Ecocuero",
     categoria: "neceser",
-    descripcion: "Neceser de color cafÃ© hecha de ecocuero para guardar tus productos de belleza de manera organizada y elegante.",
+    descripcion: "Neceser de color café hecha de ecocuero para guardar tus productos de belleza de manera organizada y elegante.",
     precio: 70,
     precioAntes: null,
     stock: 2,
@@ -355,7 +355,7 @@ const DEFAULT_PRODUCTS = [
     img: ""
   },
   {
-    nombre: "JabÃ³n Centella Neutro",
+    nombre: "Jabón Centella Neutro",
     categoria: "cuidado",
     descripcion: "",
     precio: 120,
@@ -379,7 +379,7 @@ const DEFAULT_PRODUCTS = [
   {
     nombre: "Hidratante De Labios",
     categoria: "cuidado",
-    descripcion: "Hidratante de labios con ingredientes naturales para mantener tus labios suaves y humectados durante todo el dia.",
+    descripcion: "Hidratante de labios con ingredientes naturales para mantener tus labios suaves y humectados durante todo el día.",
     precio: 10,
     precioAntes: null,
     stock: 1,
@@ -390,7 +390,7 @@ const DEFAULT_PRODUCTS = [
   {
     nombre: "Paleta Barbie",
     categoria: "maquillaje",
-    descripcion: "Paleta de colores inspirada en la icÃ³nica muÃ±eca Barbie para crear looks divertidos y femeninos.",
+    descripcion: "Paleta de colores inspirada en la icónica muñeca Barbie para crear looks divertidos y femeninos.",
     precio: 400,
     precioAntes: null,
     stock: 1,
@@ -399,9 +399,9 @@ const DEFAULT_PRODUCTS = [
     img: "https://img-73s.pages.dev/10.webp"
   },
   {
-    nombre: "Paleta LoterÃ­a",
+    nombre: "Paleta Lotería",
     categoria: "maquillaje",
-    descripcion: "Paleta de loterÃ­a para crear looks divertidos y femeninos.",
+    descripcion: "Paleta de lotería para crear looks divertidos y femeninos.",
     precio: 400,
     precioAntes: null,
     stock: 1,
@@ -522,7 +522,7 @@ const DEFAULT_PRODUCTS = [
   {
     nombre: "Set De Navidad",
     categoria: "maquillaje",
-    descripcion: "Set de productos con estilo navidadeÃ±o.",
+    descripcion: "Set de productos con estilo navideño.",
     precio: 60,
     precioAntes: null,
     stock: 1,
@@ -599,7 +599,7 @@ const DEFAULT_PRODUCTS = [
   {
     nombre: "Labial Con Llavero",
     categoria: "maquillaje",
-    descripcion: "Labial con llavero para un estilo Ãºnico.",
+    descripcion: "Labial con llavero para un estilo único.",
     precio: 30,
     precioAntes: null,
     stock: 1,
@@ -619,7 +619,7 @@ const DEFAULT_PRODUCTS = [
     img: "https://img-73s.pages.dev/IMG-20260424-WA0030.jpg"
   },
   {
-    nombre: "Jabon Facial",
+    nombre: "Jabón Facial",
     categoria: "cuidado",
     descripcion: "Jabon para el cuidado del rostro con ingredientes naturales.",
     precio: 40,
@@ -632,7 +632,7 @@ const DEFAULT_PRODUCTS = [
   {
     nombre: "Iluminador Liquido",
     categoria: "maquillaje",
-    descripcion: "Iluminador lÃ­quido para un acabado brillante.",
+    descripcion: "Iluminador líquido para un acabado brillante.",
     precio: 30,
     precioAntes: null,
     stock: 1,
@@ -696,7 +696,7 @@ const DEFAULT_PRODUCTS = [
     img: "https://img-73s.pages.dev/21122.webp"
   },
   {
-    nombre: "Protector Solar CafÃ© Centella",
+    nombre: "Protector Solar Café Centella",
     categoria: "cuidado",
     descripcion: "Protector solar para el cuidado de la piel con ingredientes naturales.",
     precio: 130,
@@ -718,7 +718,7 @@ const DEFAULT_PRODUCTS = [
     img: ""
   },
   {
-    nombre: "Crema CafÃ© Centella",
+    nombre: "Crema Café Centella",
     categoria: "cuidado",
     descripcion: "Crema para el cuidado de la piel con ingredientes naturales.",
     precio: 130,
@@ -729,7 +729,7 @@ const DEFAULT_PRODUCTS = [
     img: ""
   },
   {
-    nombre: "Jabon Facial Mixsoon",
+    nombre: "Jabón Facial Mixsoon",
     categoria: "cuidado",
     descripcion: "Jabon para el cuidado del rostro con ingredientes naturales.",
     precio: 130,
@@ -762,7 +762,7 @@ const DEFAULT_PRODUCTS = [
     img: ""
   },
   {
-    nombre: "Ampolla Centella CafÃ©",
+    nombre: "Ampolla Centella Café",
     categoria: "cuidado",
     descripcion: "Ampolla para el cuidado de la piel con ingredientes naturales.",
     precio: 150,
@@ -773,7 +773,7 @@ const DEFAULT_PRODUCTS = [
     img: ""
   },
   {
-    nombre: "Jabon Facial Centella Rosa",
+    nombre: "Jabón Facial Centella Rosa",
     categoria: "cuidado",
     descripcion: "Jabon para el cuidado del rostro con ingredientes naturales.",
     precio: 150,
@@ -831,7 +831,7 @@ export default {
         await requireAdmin(request, env);
         const body = await request.json();
         const products = Array.isArray(body) ? body : body.products;
-        if (!Array.isArray(products)) return json({ error: 'Lista de productos invalida' }, { status: 400 });
+        if (!Array.isArray(products)) return json({ error: 'Lista de productos inválida' }, { status: 400 });
         const clean = normalizeProducts(products);
         await saveProducts(env, clean);
         return json({ products: clean });
