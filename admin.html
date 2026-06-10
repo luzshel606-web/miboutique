@@ -87,6 +87,11 @@
     </section>
  
     <div class="toolbar">
+    <select id="filterOculto" onchange="renderTable()">
+  <option value="visible">Solo visibles</option>
+  <option value="ocultos">Solo ocultos</option>
+  <option value="todos">Todos</option>
+</select>
       <input id="search" type="search" placeholder="Buscar por nombre, categoría o etiqueta">
       <div class="status" id="count"></div>
     </div>
@@ -125,7 +130,8 @@ function productFromForm(){
     stock:Number($('stock').value||0),
     tag:$('tag').value.trim(),
     tagTipo:$('tagTipo').value,
-    img:$('img').value.trim()
+    img:$('img').value.trim(),
+    oculto: false
   };
 }
 function fillForm(p){
@@ -143,11 +149,17 @@ async function loadProducts(){
 }
 function renderTable(){
   var q = norm($('search').value);
-  var rows = products.filter(function(p){return !q || norm([p.nombre,p.categoria,p.tag,p.descripcion].join(' ')).indexOf(q)>-1});
+  var filtroOculto = $('filterOculto') ? $('filterOculto').value : 'visible';
+  var rows = products.filter(function(p){
+    if(filtroOculto === 'visible' && p.oculto) return false;
+    if(filtroOculto === 'ocultos' && !p.oculto) return false;
+    return !q || norm([p.nombre,p.categoria,p.tag,p.descripcion].join(' ')).indexOf(q)>-1;
+  });
   $('count').textContent = rows.length + ' de ' + products.length + ' productos';
   $('tbody').innerHTML = rows.map(function(p){
     var stockClass = p.stock <= 0 ? 'out' : p.stock <= 3 ? 'low' : '';
-    return '<tr><td><img class="thumb" src="'+(p.img||fallbackImg)+'" onerror="this.src=\''+fallbackImg+'\'" alt=""></td><td><div class="name">'+escapeHtml(p.nombre)+'</div><div class="muted">'+escapeHtml(p.descripcion||'')+'</div></td><td>'+escapeHtml(p.categoria)+'</td><td>'+p.precio+' Bs'+(p.precioAntes?' <span class="muted">antes '+p.precioAntes+'</span>':'')+'</td><td><span class="stock '+stockClass+'">'+p.stock+'</span></td><td>'+escapeHtml(p.tag||'')+'</td><td><div class="actions"><button class="btn secondary small" type="button" onclick="editProduct(\''+p.id+'\')">Editar</button><button class="btn danger small" type="button" onclick="deleteProduct(\''+p.id+'\')">Borrar</button></div></td></tr>';
+    var ocultarLabel = p.oculto ? 'Mostrar' : 'Ocultar';
+    return '<tr style="'+(p.oculto?'opacity:.5':'')+'"><td><img class="thumb" src="'+(p.img||fallbackImg)+'" onerror="this.src=\''+fallbackImg+'\'" alt=""></td><td><div class="name">'+escapeHtml(p.nombre)+'</div><div class="muted">'+escapeHtml(p.descripcion||'')+'</div></td><td>'+escapeHtml(p.categoria)+'</td><td>'+p.precio+' Bs'+(p.precioAntes?' <span class="muted">antes '+p.precioAntes+'</span>':'')+'</td><td><span class="stock '+stockClass+'">'+p.stock+'</span></td><td>'+escapeHtml(p.tag||'')+'</td><td><div class="actions"><button class="btn secondary small" type="button" onclick="editProduct(\''+p.id+'\')">Editar</button><button class="btn secondary small" type="button" onclick="toggleOculto(\''+p.id+'\')">'+ocultarLabel+'</button><button class="btn danger small" type="button" onclick="deleteProduct(\''+p.id+'\')">Borrar</button></div></td></tr>';
   }).join('');
 }
 function escapeHtml(value){return String(value||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
@@ -181,7 +193,18 @@ $('clearBtn').addEventListener('click', clearForm);
 $('reloadBtn').addEventListener('click', loadProducts);
 $('logoutBtn').addEventListener('click', async function(){ await api('/api/admin/logout',{method:'POST'}).catch(function(){}); showLogin(); });
  
-// ── CSV IMPORT ──────────────────────────────────────────────────────────────
+// ── OCULTAR PRODUCTO ─────────────────────────────────────────────────────────
+async function toggleOculto(id){
+  var p = products.find(function(x){ return x.id === id });
+  if(!p) return;
+  p.oculto = !p.oculto;
+  try{
+    await api('/api/admin/products/'+encodeURIComponent(id), {method:'PUT', body:JSON.stringify(p)});
+  }catch(e){ p.oculto = !p.oculto; } // revertir si falla
+  renderTable();
+}
+
+// ── CSV IMPORT ───────────────────────────────────────────────────────────────
 var csvRows = [];
 var CSV_COLS_MAP = { nombre:'nombre', category:'categoria', categoria:'categoria', price:'precio', precio:'precio', precioantes:'precioAntes', precioAntes:'precioAntes', before:'precioAntes', stock:'stock', img:'img', image:'img', imagen:'img', tag:'tag', etiqueta:'tag', tagTipo:'tagTipo', tagcolor:'tagTipo', color:'tagTipo', descripcion:'descripcion', description:'descripcion', desc:'descripcion' };
 var CSV_CATS = ['cuidado','perfumes','maquillaje','neceser','escolares'];
@@ -292,6 +315,7 @@ $('csvToggleBtn').addEventListener('click', function(){
   var hidden = body.classList.toggle('hidden');
   this.textContent = hidden ? 'Mostrar' : 'Ocultar';
 });
+api('/api/admin/session').then(loadProducts).catch(showLogin);
  
 </script>
 </body>
