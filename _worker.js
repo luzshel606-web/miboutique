@@ -13,7 +13,8 @@ export default {
 
     try {
       if (url.pathname === '/api/products' && request.method === 'GET') {
-        return json({ products: await getProducts(env) });
+        const all = await getProducts(env);
+        return json({ products: all.filter(p => !p.oculto) });
       }
 
       if (url.pathname === '/api/admin/login' && request.method === 'POST') {
@@ -179,7 +180,8 @@ function normalizeProduct(product, index = 0) {
     stock: Math.max(0, Math.floor(finiteNumber(p.stock))),
     tag: cleanText(p.tag || ''),
     tagTipo: cleanText(p.tagTipo || ''),
-    img: cleanText(p.img || '')
+    img: cleanText(p.img || ''),
+    oculto: p.oculto === true
   };
 }
 
